@@ -44,22 +44,26 @@ import net.minecraftforge.fml.loading.FMLPaths;
 public class NBTEdit {
 
 	public static final String MODID = "nbtedit";
-	public static final Comparator<Node<NamedNBT>> SORTER = new NBTComparator();
 
-	public static File NBT_DAT;
+	public static final Comparator<Node<NamedNBT>> SORTER = new NBTComparator();
+	public static final PacketDispatcher PIPELINE = new PacketDispatcher();
+
+	public static final File NBT_DAT = new File(FMLPaths.GAMEDIR.get().toFile(), "saves/NBTEdit.dat");
+	public static final KeyMapping EDITNBT_KEY = new KeyMapping("NBTEdit Shortcut", InputConstants.UNKNOWN.getValue(),
+			"key.categories.misc");
+
 	public static NBTEditConfig CONFIG;
-	public static KeyMapping EDITNBT_KEY;
 
 	public NBTEdit() {
 		IEventBus modBusEvent = FMLJavaModLoadingContext.get().getModEventBus();
 		modBusEvent.addListener(NBTEdit::modConfig);
 		modBusEvent.addListener(NBTEdit::registryKeyMapping);
+		modBusEvent.addListener(NBTEdit::onCommonSetup);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
-	@SubscribeEvent
 	public static void onCommonSetup(final FMLCommonSetupEvent event) {
-		NBT_DAT = new File(FMLPaths.GAMEDIR.get().toFile(), "saves/NBTEdit.dat");
+		PIPELINE.init();
 	}
 
 	@SubscribeEvent
@@ -76,7 +80,6 @@ public class NBTEdit {
 	}
 
 	public static void registryKeyMapping(final RegisterKeyMappingsEvent event) {
-		EDITNBT_KEY = new KeyMapping("NBTEdit Shortcut", InputConstants.UNKNOWN.getValue(), "key.categories.misc");
 		event.register(EDITNBT_KEY);
 	}
 

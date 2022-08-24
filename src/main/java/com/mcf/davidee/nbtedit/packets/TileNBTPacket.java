@@ -14,7 +14,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraftforge.network.NetworkDirection;
+import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.network.NetworkEvent.Context;
 
 public class TileNBTPacket {
@@ -46,18 +46,20 @@ public class TileNBTPacket {
 
 	public static void handle(TileNBTPacket msg, Supplier<Context> sup) {
 		final Context context = sup.get();
-		final ServerPlayer player = context.getSender();
 
-		NBTHelper.assertSender(player);
-		NBTHelper.assertPermission(player);
-
-		final BlockEntity blockEntity = player.getLevel().getBlockEntity(msg.pos);
-		final NBTTarget target = NBTTarget.of(msg.pos, msg.tag);
-
-		NBTHelper.assertExsistTarget(target, blockEntity);
-
+		context.setPacketHandled(true);
 		context.enqueueWork(() -> {
-			if (context.getDirection() == NetworkDirection.PLAY_TO_SERVER) {
+			final ServerPlayer player = context.getSender();
+
+			NBTHelper.assertSender(player);
+			NBTHelper.assertPermission(player);
+
+			final BlockEntity blockEntity = player.getLevel().getBlockEntity(msg.pos);
+			final NBTTarget target = NBTTarget.of(msg.pos, msg.tag);
+
+			NBTHelper.assertExsistTarget(target, blockEntity);
+
+			if (context.getDirection().getOriginationSide() == LogicalSide.SERVER) {
 				final ServerLevel level = player.getLevel();
 
 				NBTHelper.readFromNBT(msg.tag, target, blockEntity, (t, u) -> u.load(t));

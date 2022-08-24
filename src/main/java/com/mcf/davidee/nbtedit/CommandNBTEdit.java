@@ -2,7 +2,6 @@ package com.mcf.davidee.nbtedit;
 
 import com.mcf.davidee.nbtedit.packets.EntityRequestPacket;
 import com.mcf.davidee.nbtedit.packets.MouseOverPacket;
-import com.mcf.davidee.nbtedit.packets.PacketHandler;
 import com.mcf.davidee.nbtedit.packets.TileRequestPacket;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
@@ -39,7 +38,7 @@ public class CommandNBTEdit {
 	}
 
 	public static int check(CommandSourceStack source) throws CommandSyntaxException {
-		return check(source, () -> PacketHandler.sendToServer(new MouseOverPacket()));
+		return check(source, () -> NBTEdit.PIPELINE.sendToServer(new MouseOverPacket()));
 	}
 
 	public static final SimpleCommandExceptionType NO_PERMISSION = new SimpleCommandExceptionType(

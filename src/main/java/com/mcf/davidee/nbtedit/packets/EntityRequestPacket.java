@@ -3,6 +3,7 @@ package com.mcf.davidee.nbtedit.packets;
 import java.util.Objects;
 import java.util.function.Supplier;
 
+import com.mcf.davidee.nbtedit.NBTEdit;
 import com.mcf.davidee.nbtedit.NBTEditMessage;
 import com.mcf.davidee.nbtedit.NBTHelper;
 import com.mcf.davidee.nbtedit.nbt.NBTTarget;
@@ -35,9 +36,10 @@ public class EntityRequestPacket {
 
 	public static void handle(EntityRequestPacket msg, Supplier<Context> sup) {
 		final Context context = sup.get();
-		final ServerPlayer player = context.getSender();
 
+		context.setPacketHandled(true);
 		context.enqueueWork(() -> {
+			final ServerPlayer player = context.getSender();
 			final ServerLevel level = player.getLevel();
 			final Entity entity = level.getEntity(msg.entityID);
 			final NBTTarget target = NBTTarget.of(entity);
@@ -49,7 +51,7 @@ public class EntityRequestPacket {
 			if (Objects.nonNull(entity)) {
 				CompoundTag tag = new CompoundTag();
 				entity.save(tag);
-				PacketHandler.sendToPlayer(new EntityNBTPacket(msg.entityID, tag), player);
+				NBTEdit.PIPELINE.sendToPlayer(new EntityNBTPacket(msg.entityID, tag), player);
 			}
 		});
 	}

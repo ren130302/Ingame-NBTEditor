@@ -14,7 +14,6 @@ import com.mcf.davidee.nbtedit.nbt.NBTTree;
 import com.mcf.davidee.nbtedit.nbt.NamedNBT;
 import com.mcf.davidee.nbtedit.nbt.Node;
 import com.mcf.davidee.nbtedit.packets.EntityNBTPacket;
-import com.mcf.davidee.nbtedit.packets.PacketHandler;
 import com.mcf.davidee.nbtedit.packets.TileNBTPacket;
 import com.mcf.davidee.nbtedit.screen.NBTNodeList.NBTNodeEntry;
 import com.mojang.blaze3d.platform.InputConstants;
@@ -81,9 +80,9 @@ public class EditNBTTreeScreen extends Screen {
 		if (this.target.hasTag()) {
 			final CompoundTag tag = this.tree.toNBTTagCompound();
 			if (this.target.hasEntity()) {
-				PacketHandler.sendToServer(new EntityNBTPacket(this.target.entity().getId(), tag));
+				NBTEdit.PIPELINE.sendToServer(new EntityNBTPacket(this.target.entity().getId(), tag));
 			} else if (this.target.hasPos()) {
-				PacketHandler.sendToServer(new TileNBTPacket(this.target.pos(), tag));
+				NBTEdit.PIPELINE.sendToServer(new TileNBTPacket(this.target.pos(), tag));
 			}
 		} else {
 			throw new NullPointerException("Cant send tag " + this.target.toString());

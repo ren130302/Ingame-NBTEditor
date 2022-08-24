@@ -2,6 +2,7 @@ package com.mcf.davidee.nbtedit.packets;
 
 import java.util.function.Supplier;
 
+import com.mcf.davidee.nbtedit.NBTEdit;
 import com.mcf.davidee.nbtedit.NBTHelper;
 
 import net.minecraft.client.Minecraft;
@@ -22,6 +23,8 @@ public class MouseOverPacket {
 
 	public static void handle(MouseOverPacket msg, Supplier<Context> sup) {
 		final Context context = sup.get();
+
+		context.setPacketHandled(true);
 		context.enqueueWork(() -> {
 			final Minecraft minecraft = Minecraft.getInstance();
 			final HitResult hitResult = minecraft.hitResult;
@@ -29,11 +32,11 @@ public class MouseOverPacket {
 			switch (hitResult.getType()) {
 			case BLOCK:
 				final BlockHitResult blockHitResult = ((BlockHitResult) hitResult);
-				PacketHandler.sendToAll(new TileRequestPacket(blockHitResult.getBlockPos()));
+				NBTEdit.PIPELINE.sendToAll(new TileRequestPacket(blockHitResult.getBlockPos()));
 				break;
 			case ENTITY:
 				final EntityHitResult entityHitResult = ((EntityHitResult) hitResult);
-				PacketHandler.sendToAll(new EntityRequestPacket(entityHitResult.getEntity().getId()));
+				NBTEdit.PIPELINE.sendToAll(new EntityRequestPacket(entityHitResult.getEntity().getId()));
 				break;
 			default:
 				NBTHelper.hitResultIsNone();

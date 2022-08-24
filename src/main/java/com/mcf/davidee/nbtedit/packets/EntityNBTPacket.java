@@ -14,7 +14,7 @@ import net.minecraft.network.protocol.game.ClientboundSetExperiencePacket;
 import net.minecraft.network.protocol.game.ClientboundSetHealthPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
-import net.minecraftforge.network.NetworkDirection;
+import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.network.NetworkEvent.Context;
 
 public class EntityNBTPacket {
@@ -45,18 +45,20 @@ public class EntityNBTPacket {
 
 	public static void handle(EntityNBTPacket msg, Supplier<Context> sup) {
 		final Context context = sup.get();
-		final ServerPlayer player = context.getSender();
 
-		NBTHelper.assertSender(player);
-		NBTHelper.assertPermission(player);
-
-		final Entity entity = player.getLevel().getEntity(msg.entityID);
-		final NBTTarget target = NBTTarget.of(entity);
-
-		NBTHelper.assertExsistTarget(target, entity);
-
+		context.setPacketHandled(true);
 		context.enqueueWork(() -> {
-			if (context.getDirection() == NetworkDirection.PLAY_TO_SERVER) {
+			final ServerPlayer player = context.getSender();
+
+			NBTHelper.assertSender(player);
+			NBTHelper.assertPermission(player);
+
+			final Entity entity = player.getLevel().getEntity(msg.entityID);
+			final NBTTarget target = NBTTarget.of(entity);
+
+			NBTHelper.assertExsistTarget(target, entity);
+
+			if (context.getDirection().getOriginationSide() == LogicalSide.SERVER) {
 				NBTHelper.readFromNBT(msg.tag, target, entity, (t, u) -> u.load(t));
 
 				if (entity instanceof ServerPlayer) {
