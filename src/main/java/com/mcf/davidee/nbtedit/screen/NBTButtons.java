@@ -242,7 +242,7 @@ public class NBTButtons {
 		return new DeleteSaveButton(onPress);
 	}
 
-	public class ImageButton extends Button {
+	public static class ImageButton extends Button {
 		protected final ResourceLocation resourceLocation;
 
 		protected final int texX;
@@ -296,7 +296,7 @@ public class NBTButtons {
 		}
 	}
 
-	public class NBTButton extends ImageButton {
+	public static class NBTButton extends ImageButton {
 
 		public NBTButton(int x, int y, int size, OnPress onPress, Component label, ResourceLocation resourceLocation,
 				int texX, int texY, int texSize, int picSize) {
@@ -315,7 +315,7 @@ public class NBTButtons {
 
 	}
 
-	public class CharacterButton extends NBTButton {
+	public static class CharacterButton extends NBTButton {
 		public CharacterButton(int x, int y, ResourceLocation resourceLocation, OnPress onPress, Component label) {
 			super(x, y, 26, onPress, label, resourceLocation, 0, 0, 26, 26);
 		}

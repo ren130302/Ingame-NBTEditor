@@ -1,18 +1,20 @@
 package com.mcf.davidee.nbtedit.screen;
 
+import java.util.Collections;
 import java.util.Objects;
 
+import com.mcf.davidee.nbtedit.NBTEdit;
 import com.mcf.davidee.nbtedit.NBTEditMessage;
 import com.mcf.davidee.nbtedit.NBTStringHelper;
 import com.mcf.davidee.nbtedit.ParseHelper;
 import com.mcf.davidee.nbtedit.nbt.NamedNBT;
 import com.mcf.davidee.nbtedit.nbt.Node;
 import com.mcf.davidee.nbtedit.screen.NBTButtons.CharacterButton;
+import com.mcf.davidee.nbtedit.screen.NBTButtons.T;
 import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.client.gui.components.Button;
@@ -36,11 +38,10 @@ public class EditNBTScreen extends Screen {
 	public static final int WIDTH = 176;
 	public static final int HEIGHT = 90;
 
-	private final Minecraft mc = Minecraft.getInstance();
 	private final EditNBTTreeScreen parent;
 	private final Node<NamedNBT> focused;
 	private final Tag nbt;
-	private final boolean canEditText;
+	private final boolean canEditKey;
 	private final boolean canEditValue;
 
 	private EditBox key;
@@ -58,13 +59,13 @@ public class EditNBTScreen extends Screen {
 		this.parent = parent;
 		this.focused = parent.getNBTNodeEntry().node();
 
-		NBTEditMessage.trace("EditNBTScreen - " + focused.toString());
+		NBTEditMessage.trace("EditNBTScreen - " + this.focused.toString());
 
-		Tag tagbase = focused.object().tag();
-		Tag tagparent = focused.parent().object().tag();
+		Tag tagbase = this.focused.object().tag();
+		Tag tagparent = this.focused.parent().object().tag();
 
-		this.nbt = focused.object().tag();
-		this.canEditText = !(tagparent instanceof ListTag);
+		this.nbt = this.focused.object().tag();
+		this.canEditKey = !(tagparent instanceof ListTag);
 		this.canEditValue = !(tagbase instanceof CompoundTag || tagbase instanceof ListTag);
 	}
 
@@ -74,22 +75,22 @@ public class EditNBTScreen extends Screen {
 		String sKey = (this.key == null) ? this.focused.object().name() : this.key.getValue();
 		String sValue = (this.value == null) ? NBTStringHelper.getValue(this.nbt) : this.value.getValue();
 
-		this.section = this.addRenderableWidget(this.parent.buttonsDefine().section((this.width + WIDTH) / 2,
-				(this.height - HEIGHT) / 2 + 34, button -> {
+		this.section = this.addRenderableWidget(new CharacterButton((this.width + WIDTH) / 2,
+				(this.height - HEIGHT) / 2 + 34, T.SECTION.getResource(), button -> {
 					this.value.insertText("§");
-				}));
-		this.newLine = this.addRenderableWidget(this.parent.buttonsDefine().newLine((this.width + WIDTH) / 2,
-				(this.height - HEIGHT) / 2 + 50, button -> {
+				}, Component.literal("")));
+		this.newLine = this.addRenderableWidget(new CharacterButton((this.width + WIDTH) / 2,
+				(this.height - HEIGHT) / 2 + 50, T.NEXTLINE.getResource(), button -> {
 					this.value.insertText("\n");
-				}));
-		this.key = this.addRenderableWidget(new EditBox(this.mc.font, (this.width - WIDTH) / 2 + 46,
+				}, Component.literal("")));
+		this.key = this.addRenderableWidget(new EditBox(this.minecraft.font, (this.width - WIDTH) / 2 + 46,
 				(this.height - HEIGHT) / 2 + 18, 115, 14, Component.literal("key")));
-		this.value = this.addRenderableWidget(new EditBox(this.mc.font, (this.width - WIDTH) / 2 + 46,
+		this.value = this.addRenderableWidget(new EditBox(this.minecraft.font, (this.width - WIDTH) / 2 + 46,
 				(this.height - HEIGHT) / 2 + 44, 115, 14, Component.literal("value")));
 
 		this.key.insertText(sKey);
 		this.key.setBordered(false);
-		this.key.setEditable(this.canEditText);
+		this.key.setEditable(this.canEditKey);
 		this.value.setMaxLength(256);
 		this.value.insertText(sValue);
 		this.value.setBordered(false);
@@ -105,7 +106,7 @@ public class EditNBTScreen extends Screen {
 				}));
 
 		if (!this.key.isFocused() && !this.value.isFocused()) {
-			this.key.setEditable(this.canEditText);
+			this.key.setEditable(this.canEditKey);
 			this.value.setEditable(this.canEditValue);
 		}
 
@@ -116,21 +117,22 @@ public class EditNBTScreen extends Screen {
 
 	@Override
 	public void onClose() {
-		minecraft.setScreen(parent);
+		this.minecraft.setScreen(this.parent);
 	}
 
 	private void onSaveAndQuit() {
 
-		if (this.canEditText) {
+		if (this.canEditKey) {
 			this.focused.object().name(this.key.getValue());
 		}
 
 		ParseHelper.setValidValue(this.focused, this.value.getValue());
 
+		this.parent.getNBTNodeList().init();
 		final Node<NamedNBT> parent = this.focused.parent();
 
-		//Collections.sort(parent.children(), NBTEdit.SORTER);
-		Minecraft.getInstance().setScreen(this.parent);
+		Collections.sort(parent.children(), NBTEdit.SORTER);
+		this.onClose();
 	}
 
 	@Override
@@ -146,7 +148,6 @@ public class EditNBTScreen extends Screen {
 				HEIGHT);
 
 		if (Objects.nonNull(this.kError)) {
-			System.out.println("width:" + this.width);
 			drawCenteredString(poseStack, font, this.kError, this.width / 2, (this.height - HEIGHT) / 2 + 4, 0xFF3333);
 		}
 		if (Objects.nonNull(this.vError)) {// this.height + 32
@@ -160,12 +161,25 @@ public class EditNBTScreen extends Screen {
 	public void tick() {
 		this.key.tick();
 		this.value.tick();
-		super.tick();
 	}
 
 	@Override
 	public boolean mouseClicked(double mouseX, double mouseY, int code) {
-		return super.mouseClicked(mouseX, mouseY, code);
+		if (this.key.mouseClicked(mouseX, mouseY, code)) {
+			this.key.setFocus(true);
+			this.value.setFocus(false);
+			this.setFocused(this.value);
+		} else if (this.value.mouseClicked(mouseX, mouseY, code)) {
+			this.key.setFocus(false);
+			this.value.setFocus(true);
+			this.setFocused(this.key);
+		} else {
+			return super.mouseClicked(mouseX, mouseY, code);
+		}
+
+		this.section.active = this.value.isFocused();
+		this.newLine.active = this.value.isFocused();
+		return false;
 	}
 
 	@Override
@@ -174,11 +188,13 @@ public class EditNBTScreen extends Screen {
 			this.cancel.onPress();
 		} else if (p_96552_ == InputConstants.KEY_TAB) {
 			if (this.key.isFocused() && this.canEditValue) {
-				this.key.active = (false);
-				this.value.active = (true);
-			} else if (this.value.isFocused() && this.canEditText) {
-				this.key.active = (true);
-				this.value.active = (false);
+				this.key.setFocus(false);
+				this.value.setFocus(true);
+				this.setFocused(this.value);
+			} else if (this.value.isFocused() && this.canEditKey) {
+				this.key.setFocus(true);
+				this.value.setFocus(false);
+				this.setFocused(this.key);
 			}
 			this.section.active = this.value.isFocused();
 			this.newLine.active = this.value.isFocused();
@@ -188,36 +204,46 @@ public class EditNBTScreen extends Screen {
 				this.save.onPress();
 			}
 		} else {
+			if (this.key.isFocused()) {
+				this.setFocused(this.key);
+			} else if (this.value.isFocused()) {
+				this.setFocused(this.value);
+			}
+
+			super.keyPressed(p_96552_, p_96553_, p_96554_);
 			this.checkValidInput();
 		}
-		return super.keyPressed(p_96552_, p_96553_, p_96554_);
+
+		return false;
+	}
+
+	@Override
+	public boolean charTyped(char p_94683_, int p_94684_) {
+		super.charTyped(p_94683_, p_94684_);
+		this.checkValidInput();
+		return false;
 	}
 
 	private void checkValidInput() {
-		boolean valid = true;
+		this.kError = null;
+		this.vError = null;
+
 		for (Node<NamedNBT> node : this.focused.parent().children()) {
 			Tag base = node.object().tag();
 			if (base != this.nbt && node.object().name().equals(this.key.getValue())) {
-				valid = false;
+				this.kError = "Duplicate Tag Name";
 				break;
 			}
 		}
-		if (this.canEditText && !valid) {
-			valid = false;
-			this.kError = "Duplicate Tag Name";
-		} else {
-			this.kError = null;
-		}
+
 		try {
 			ParseHelper.validValue(this.value.getValue(), this.nbt.getId());
-			valid &= true;
-			this.vError = null;
 		} catch (NumberFormatException e) {
-			valid = false;
 			this.vError = e.getMessage();
 		}
-		System.out.println(this.kError);
-		System.out.println(this.vError);
-		this.save.active = valid;
+
+		System.out.println(this.key.getValue() + " : " + this.kError);
+		System.out.println(this.value.getValue() + " : " + this.vError);
+		this.save.active = Objects.isNull(this.kError) && Objects.isNull(this.vError);
 	}
 }

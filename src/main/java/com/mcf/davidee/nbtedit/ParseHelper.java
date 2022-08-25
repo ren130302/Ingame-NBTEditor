@@ -31,21 +31,29 @@ public class ParseHelper {
 			parsed = ShortTag.valueOf(ParseHelper.parseShort(value));
 			break;
 		case 3:
-			named.tag(IntTag.valueOf(ParseHelper.parseInt(value)));
+			parsed = IntTag.valueOf(ParseHelper.parseInt(value));
+			break;
 		case 4:
-			named.tag(LongTag.valueOf(ParseHelper.parseLong(value)));
+			parsed = LongTag.valueOf(ParseHelper.parseLong(value));
+			break;
 		case 5:
-			named.tag(FloatTag.valueOf(ParseHelper.parseFloat(value)));
+			parsed = FloatTag.valueOf(ParseHelper.parseFloat(value));
+			break;
 		case 6:
-			named.tag(DoubleTag.valueOf(ParseHelper.parseDouble(value)));
+			parsed = DoubleTag.valueOf(ParseHelper.parseDouble(value));
+			break;
 		case 7:
-			named.tag(new ByteArrayTag(ParseHelper.parseByteArray(value)));
+			parsed = new ByteArrayTag(ParseHelper.parseByteArray(value));
+			break;
 		case 8:
-			named.tag(StringTag.valueOf(value));
+			parsed = StringTag.valueOf(value);
+			break;
 		case 11:
-			named.tag(new IntArrayTag(ParseHelper.parseIntArray(value)));
+			parsed = new IntArrayTag(ParseHelper.parseIntArray(value));
+			break;
 		case 12:
-			named.tag(new LongArrayTag(ParseHelper.parseLongArray(value)));
+			parsed = new LongArrayTag(ParseHelper.parseLongArray(value));
+			break;
 		}
 		if (Objects.isNull(parsed)) {
 			named.tag(parsed);
