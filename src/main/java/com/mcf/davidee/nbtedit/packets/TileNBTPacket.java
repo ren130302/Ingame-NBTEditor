@@ -11,8 +11,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.network.NetworkEvent.Context;
@@ -49,19 +49,15 @@ public class TileNBTPacket {
 
 		context.setPacketHandled(true);
 		context.enqueueWork(() -> {
-			final ServerPlayer player = context.getSender();
-
-			NBTHelper.assertSender(player);
-			NBTHelper.assertPermission(player);
-
-			final BlockEntity blockEntity = player.getLevel().getBlockEntity(msg.pos);
+			final Minecraft minecraft = Minecraft.getInstance();
+			final Player player = minecraft.player;
+			final Level level = player.getLevel();
+			final BlockEntity blockEntity = level.getBlockEntity(msg.pos);
 			final NBTTarget target = NBTTarget.of(msg.pos, msg.tag);
 
 			NBTHelper.assertExsistTarget(target, blockEntity);
 
-			if (context.getDirection().getOriginationSide() == LogicalSide.SERVER) {
-				final ServerLevel level = player.getLevel();
-
+			if (context.getDirection().getReceptionSide() == LogicalSide.SERVER) {
 				NBTHelper.readFromNBT(msg.tag, target, blockEntity, (t, u) -> u.load(t));
 
 				blockEntity.setChanged();

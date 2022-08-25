@@ -60,6 +60,7 @@ public class PacketDispatcher {
 	}
 
 	public <MSG> void sendToServer(MSG msg) {
-		this.channel.send(PacketDistributor.SERVER.noArg(), msg);
+		//this.channel.send(PacketDistributor.SERVER.noArg(), msg);
+		this.channel.sendToServer(msg);
 	}
 }

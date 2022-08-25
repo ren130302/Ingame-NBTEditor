@@ -38,4 +38,8 @@ class NBTEditException extends Exception {
 		return new NBTEditException(player.getName() + " tried to use NBTEdit on another player, "
 				+ other.getName().getString());
 	}
+
+	public static NBTEditException targetHasNoTags(NBTTarget target) {
+		return new NBTEditException("NBTTarget has no tags");
+	}
 }

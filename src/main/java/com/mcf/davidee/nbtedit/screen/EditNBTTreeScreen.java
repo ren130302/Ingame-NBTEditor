@@ -9,6 +9,7 @@ import javax.annotation.Nonnull;
 
 import com.mcf.davidee.nbtedit.NBTEdit;
 import com.mcf.davidee.nbtedit.NBTEditMessage;
+import com.mcf.davidee.nbtedit.NBTHelper;
 import com.mcf.davidee.nbtedit.nbt.NBTTarget;
 import com.mcf.davidee.nbtedit.nbt.NBTTree;
 import com.mcf.davidee.nbtedit.nbt.NamedNBT;
@@ -40,6 +41,7 @@ public class EditNBTTreeScreen extends Screen {
 	private final NBTButtons buttonDefine;
 	private final List<Button> buttons;
 	public int size = Minecraft.getInstance().font.lineHeight;
+	private NBTNodeEntry nodeEntry;
 
 	public EditNBTTreeScreen(NBTTarget target) {
 		super(Component.literal("NBTEdit -- " + target.toString()));
@@ -53,13 +55,11 @@ public class EditNBTTreeScreen extends Screen {
 	@Override
 	protected void init() {
 		this.buttons.forEach(this::addRenderableWidget);
-
 		this.nodeList = new NBTNodeList(this, this.minecraft);
 		this.nodeList.setRenderBackground(false);
 		this.saveList = new SaveStateList(this, this.minecraft);
 		this.addWidget(this.nodeList);
 		this.addWidget(this.saveList);
-
 		this.addRenderableWidget(
 				new Button(this.width / 2 - 100, this.height - 30, 98, 20, CommonComponents.GUI_CANCEL, p_101366_ -> {
 					this.onClose();
@@ -77,16 +77,17 @@ public class EditNBTTreeScreen extends Screen {
 	}
 
 	private void onCloseAndSave() {
-		if (this.target.hasTag()) {
-			final CompoundTag tag = this.tree.toNBTTagCompound();
-			if (this.target.hasEntity()) {
-				NBTEdit.PIPELINE.sendToServer(new EntityNBTPacket(this.target.entity().getId(), tag));
-			} else if (this.target.hasPos()) {
-				NBTEdit.PIPELINE.sendToServer(new TileNBTPacket(this.target.pos(), tag));
-			}
-		} else {
-			throw new NullPointerException("Cant send tag " + this.target.toString());
+		NBTHelper.assertTag(this.target);
+
+		final CompoundTag tag = this.tree.toNBTTagCompound();
+
+		if (this.target.hasEntity()) {
+			NBTEdit.PIPELINE.sendToServer(new EntityNBTPacket(this.target.entity().getId(), tag));
+		} else if (this.target.hasPos()) {
+			NBTEdit.PIPELINE.sendToServer(new TileNBTPacket(this.target.pos(), tag));
 		}
+
+		this.onClose();
 	}
 
 	@Override
@@ -191,6 +192,7 @@ public class EditNBTTreeScreen extends Screen {
 		} else {
 			this.buttonActives(false, null);
 		}
+		this.nodeEntry = nodeEntry;
 	}
 
 	private void buttonActives(boolean active, BiConsumer<EditNBTTreeScreen, List<Button>> func) {
@@ -206,7 +208,7 @@ public class EditNBTTreeScreen extends Screen {
 	}
 
 	public NBTNodeEntry getNBTNodeEntry() {
-		return this.getNBTNodeList().getSelected();
+		return this.nodeEntry;
 	}
 
 	public SaveStateList getSaveStateList() {

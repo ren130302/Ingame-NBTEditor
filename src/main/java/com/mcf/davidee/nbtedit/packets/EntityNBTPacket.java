@@ -14,6 +14,7 @@ import net.minecraft.network.protocol.game.ClientboundSetExperiencePacket;
 import net.minecraft.network.protocol.game.ClientboundSetHealthPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.network.NetworkEvent.Context;
 
@@ -48,17 +49,14 @@ public class EntityNBTPacket {
 
 		context.setPacketHandled(true);
 		context.enqueueWork(() -> {
-			final ServerPlayer player = context.getSender();
-
-			NBTHelper.assertSender(player);
-			NBTHelper.assertPermission(player);
-
+			final Minecraft minecraft = Minecraft.getInstance();
+			final Player player = minecraft.player;
 			final Entity entity = player.getLevel().getEntity(msg.entityID);
 			final NBTTarget target = NBTTarget.of(entity);
 
 			NBTHelper.assertExsistTarget(target, entity);
 
-			if (context.getDirection().getOriginationSide() == LogicalSide.SERVER) {
+			if (context.getDirection().getReceptionSide() == LogicalSide.SERVER) {
 				NBTHelper.readFromNBT(msg.tag, target, entity, (t, u) -> u.load(t));
 
 				if (entity instanceof ServerPlayer) {

@@ -41,6 +41,10 @@ public class TileRequestPacket {
 		context.setPacketHandled(true);
 		context.enqueueWork(() -> {
 			final ServerPlayer player = context.getSender();
+
+			NBTHelper.assertSender(player);
+			NBTHelper.assertPermission(player);
+
 			final ServerLevel level = player.getLevel();
 			final BlockEntity blockEntity = level.getBlockEntity(msg.pos);
 			final NBTTarget target = NBTTarget.of(msg.pos);

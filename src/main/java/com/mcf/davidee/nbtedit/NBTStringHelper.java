@@ -68,68 +68,81 @@ public class NBTStringHelper {
 			return new IntArrayTag(new int[0]);
 		case 12:
 			return new LongArrayTag(new long[0]);
-		default:
-			return null;
 		}
+		return null;
 	}
 
 	public static String toString(Tag base) {
 		switch (base.getId()) {
 		case 1:
+			return "" + ((ByteTag) base).getAsByte();
 		case 2:
+			return "" + ((ShortTag) base).getAsShort();
 		case 3:
+			return "" + ((IntTag) base).getAsInt();
 		case 4:
+			return "" + ((LongTag) base).getAsLong();
 		case 5:
+			return "" + ((FloatTag) base).getAsFloat();
 		case 6:
+			return "" + ((DoubleTag) base).getAsDouble();
 		case 7:
-		case 8:
-		case 11:
-		case 12:
-		case 13:
 			return base.toString();
+		case 8:
+			return ((StringTag) base).getAsString();
 		case 9:
 			return "(TagList)";
 		case 10:
 			return "(TagCompound)";
+		case 11:
+			return base.toString();
+		case 12:
+			return base.toString();
+		case 13:
+			return base.toString();
 		default:
 			return "?";
 		}
-//		switch (base.getId()) {
-//		case 1:
-//			return "" + ((ByteTag) base).getAsByte();
-//		case 2:
-//			return "" + ((ShortTag) base).getAsShort();
-//		case 3:
-//			return "" + ((IntTag) base).getAsInt();
-//		case 4:
-//			return "" + ((LongTag) base).getAsLong();
-//		case 5:
-//			return "" + ((FloatTag) base).getAsFloat();
-//		case 6:
-//			return "" + ((DoubleTag) base).getAsDouble();
-//		case 7:
-//			return base.toString();
-//		case 8:
-//			return ((StringTag) base).getAsString();
-//		case 9:
-//			return "(TagList)";
-//		case 10:
-//			return "(TagCompound)";
-//		case 11:
-//			return base.toString();
-//		case 12:
-//			return base.toString();
-//		case 13:
-//			return base.toString();
-//		default:
-//			return "?";
-//		}
+		//		switch (base.getId()) {
+		//		case 1:
+		//			return "" + ((ByteTag) base).getAsByte();
+		//		case 2:
+		//			return "" + ((ShortTag) base).getAsShort();
+		//		case 3:
+		//			return "" + ((IntTag) base).getAsInt();
+		//		case 4:
+		//			return "" + ((LongTag) base).getAsLong();
+		//		case 5:
+		//			return "" + ((FloatTag) base).getAsFloat();
+		//		case 6:
+		//			return "" + ((DoubleTag) base).getAsDouble();
+		//		case 7:
+		//			return base.toString();
+		//		case 8:
+		//			return ((StringTag) base).getAsString();
+		//		case 9:
+		//			return "(TagList)";
+		//		case 10:
+		//			return "(TagCompound)";
+		//		case 11:
+		//			return base.toString();
+		//		case 12:
+		//			return base.toString();
+		//		case 13:
+		//			return base.toString();
+		//		default:
+		//			return "?";
+		//		}
 	}
 
 	public static String getValue(Tag base) {
 		switch (base.getId()) {
 		case 7:
-			return base.toString();
+			String b = "";
+			for (byte a : ((ByteArrayTag) base).getAsByteArray()) {
+				b += a + " ";
+			}
+			return b;
 		case 9:
 			return "TagList";
 		case 10:
@@ -140,6 +153,12 @@ public class NBTStringHelper {
 				i += a + " ";
 			}
 			return i;
+		case 12:
+			String l = "";
+			for (long a : ((LongArrayTag) base).getAsLongArray()) {
+				l += a + " ";
+			}
+			return l;
 		default:
 			return NBTStringHelper.toString(base);
 		}

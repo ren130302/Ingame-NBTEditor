@@ -292,7 +292,7 @@ public class NBTNodeList extends ObjectSelectionList<NBTNodeList.NBTNodeEntry> {
 						this.nodeButton.onPress();
 						return true;
 					} else {
-						NBTNodeList.this.screen.tree().edit();
+						NBTNodeList.this.screen.buttonsDefine().editTag().onPress();
 						return true;
 					}
 				} else if (this.node.hasChildren()) {

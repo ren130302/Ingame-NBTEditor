@@ -40,6 +40,10 @@ public class EntityRequestPacket {
 		context.setPacketHandled(true);
 		context.enqueueWork(() -> {
 			final ServerPlayer player = context.getSender();
+
+			NBTHelper.assertSender(player);
+			NBTHelper.assertPermission(player);
+
 			final ServerLevel level = player.getLevel();
 			final Entity entity = level.getEntity(msg.entityID);
 			final NBTTarget target = NBTTarget.of(entity);

@@ -32,11 +32,11 @@ public class MouseOverPacket {
 			switch (hitResult.getType()) {
 			case BLOCK:
 				final BlockHitResult blockHitResult = ((BlockHitResult) hitResult);
-				NBTEdit.PIPELINE.sendToAll(new TileRequestPacket(blockHitResult.getBlockPos()));
+				NBTEdit.PIPELINE.sendToServer(new TileRequestPacket(blockHitResult.getBlockPos()));
 				break;
 			case ENTITY:
 				final EntityHitResult entityHitResult = ((EntityHitResult) hitResult);
-				NBTEdit.PIPELINE.sendToAll(new EntityRequestPacket(entityHitResult.getEntity().getId()));
+				NBTEdit.PIPELINE.sendToServer(new EntityRequestPacket(entityHitResult.getEntity().getId()));
 				break;
 			default:
 				NBTHelper.hitResultIsNone();

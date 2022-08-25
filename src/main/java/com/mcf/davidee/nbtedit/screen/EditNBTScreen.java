@@ -1,9 +1,7 @@
 package com.mcf.davidee.nbtedit.screen;
 
-import java.util.Collections;
 import java.util.Objects;
 
-import com.mcf.davidee.nbtedit.NBTEdit;
 import com.mcf.davidee.nbtedit.NBTEditMessage;
 import com.mcf.davidee.nbtedit.NBTStringHelper;
 import com.mcf.davidee.nbtedit.ParseHelper;
@@ -40,6 +38,7 @@ public class EditNBTScreen extends Screen {
 
 	private final Minecraft mc = Minecraft.getInstance();
 	private final EditNBTTreeScreen parent;
+	private final Node<NamedNBT> focused;
 	private final Tag nbt;
 	private final boolean canEditText;
 	private final boolean canEditValue;
@@ -57,10 +56,13 @@ public class EditNBTScreen extends Screen {
 	public EditNBTScreen(EditNBTTreeScreen parent) {
 		super(Component.literal("EditNBT - window"));
 		this.parent = parent;
-		Node<NamedNBT> focused = parent.getNBTNodeEntry().node();
+		this.focused = parent.getNBTNodeEntry().node();
+
 		NBTEditMessage.trace("EditNBTScreen - " + focused.toString());
+
 		Tag tagbase = focused.object().tag();
 		Tag tagparent = focused.parent().object().tag();
+
 		this.nbt = focused.object().tag();
 		this.canEditText = !(tagparent instanceof ListTag);
 		this.canEditValue = !(tagbase instanceof CompoundTag || tagbase instanceof ListTag);
@@ -69,7 +71,7 @@ public class EditNBTScreen extends Screen {
 	@Override
 	protected void init() {
 		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		String sKey = (this.key == null) ? this.parent.getNBTNodeEntry().node().object().name() : this.key.getValue();
+		String sKey = (this.key == null) ? this.focused.object().name() : this.key.getValue();
 		String sValue = (this.value == null) ? NBTStringHelper.getValue(this.nbt) : this.value.getValue();
 
 		this.section = this.addRenderableWidget(this.parent.buttonsDefine().section((this.width + WIDTH) / 2,
@@ -95,7 +97,7 @@ public class EditNBTScreen extends Screen {
 
 		this.cancel = this.addRenderableWidget(new Button(this.width / 2 - 100, this.height / 4 + 144 + 5, 98, 20,
 				CommonComponents.GUI_CANCEL, p_101366_ -> {
-					Minecraft.getInstance().setScreen(this.parent);
+					this.onClose();
 				}));
 		this.save = this.addRenderableWidget(new Button(this.width / 2 + 2, this.height / 4 + 144 + 5, 98, 20,
 				CommonComponents.GUI_DONE, p_101366_ -> {
@@ -106,18 +108,28 @@ public class EditNBTScreen extends Screen {
 			this.key.setEditable(this.canEditText);
 			this.value.setEditable(this.canEditValue);
 		}
+
 		this.section.active = (this.value.isFocused());
 		this.newLine.active = (this.value.isFocused());
 		this.checkValidInput();
 	}
 
+	@Override
+	public void onClose() {
+		minecraft.setScreen(parent);
+	}
+
 	private void onSaveAndQuit() {
+
 		if (this.canEditText) {
-			this.parent.getNBTNodeEntry().node().object().name(this.key.getValue());
+			this.focused.object().name(this.key.getValue());
 		}
-		ParseHelper.setValidValue(this.parent.getNBTNodeEntry().node(), this.value.getValue());
-		Node<NamedNBT> parent = this.parent.getNBTNodeEntry().node().parent();
-		Collections.sort(parent.children(), NBTEdit.SORTER);
+
+		ParseHelper.setValidValue(this.focused, this.value.getValue());
+
+		final Node<NamedNBT> parent = this.focused.parent();
+
+		//Collections.sort(parent.children(), NBTEdit.SORTER);
 		Minecraft.getInstance().setScreen(this.parent);
 	}
 
@@ -183,7 +195,7 @@ public class EditNBTScreen extends Screen {
 
 	private void checkValidInput() {
 		boolean valid = true;
-		for (Node<NamedNBT> node : this.parent.getNBTNodeEntry().node().parent().children()) {
+		for (Node<NamedNBT> node : this.focused.parent().children()) {
 			Tag base = node.object().tag();
 			if (base != this.nbt && node.object().name().equals(this.key.getValue())) {
 				valid = false;

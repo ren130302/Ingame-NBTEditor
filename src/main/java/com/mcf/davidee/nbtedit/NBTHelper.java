@@ -87,4 +87,14 @@ public class NBTHelper {
 			e.printStackTrace();
 		}
 	}
+
+	public static void assertTag(NBTTarget target) {
+		try {
+			if (target.hasTag()) {
+				throw NBTEditException.targetHasNoTags(target);
+			}
+		} catch (NBTEditException e) {
+			e.printStackTrace();
+		}
+	}
 }
