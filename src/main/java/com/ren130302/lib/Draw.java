@@ -1,4 +1,4 @@
-package com.ren130302.nbtedit.screen;
+package com.ren130302.lib;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.BufferBuilder;

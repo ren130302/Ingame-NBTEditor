@@ -6,10 +6,10 @@ import java.util.Comparator;
 import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.ren130302.lib.Draw;
 import com.ren130302.nbtedit.nbt.NamedNBT;
 import com.ren130302.nbtedit.nbt.Node;
 import com.ren130302.nbtedit.packets.PacketDispatcher;
-import com.ren130302.nbtedit.screen.Draw;
 
 import net.minecraft.client.Camera;
 import net.minecraft.client.KeyMapping;
