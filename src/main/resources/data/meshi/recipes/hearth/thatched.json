@@ -1,0 +1,17 @@
+{
+  "type": "meshi:hearth",
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "key": {
+    "S": {
+      "item": "meshi:straw"
+    }
+  },
+  "result": {
+    "item": "meshi:thatched",
+    "count": 2
+  },
+  "cookingtime": 200
+}

@@ -1,0 +1,12 @@
+{
+  "type": "meshi:grind",
+  "ingredient": {
+    "tag": "minecraft:leaves"
+  },
+  "requestcount":4,
+  "result":{
+    "item": "minecraft:green_dye",
+    "count": 1
+  },
+  "grindingtime": 200
+}

@@ -1,0 +1,12 @@
+{
+    "variants": {
+		"": [
+			{ "model": "meshi:block/sakura_leave" },
+			{ "model": "meshi:block/sakura_leave","y":180 },
+			{ "model": "meshi:block/sakura_leave_light" },
+			{ "model": "meshi:block/sakura_leave_light","y":180 },
+			{ "model": "meshi:block/sakura_leave_deep" },
+			{ "model": "meshi:block/sakura_leave_deep","y":180 }
+		]
+    }
+}

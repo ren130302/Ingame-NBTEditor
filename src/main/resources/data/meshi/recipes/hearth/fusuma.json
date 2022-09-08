@@ -1,0 +1,20 @@
+{
+  "type": "meshi:hearth",
+  "pattern": [
+    "SPS",
+    "SPS",
+    "SPS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    }
+  },
+  "result": {
+    "item": "meshi:husuma",
+    "count": 1
+  }
+}

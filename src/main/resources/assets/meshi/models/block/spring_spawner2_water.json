@@ -1,0 +1,26 @@
+{
+	"textures": {
+		"watertex": "block/water_still"
+	},
+	"elements": [
+		{
+			"name": "inner",
+			"from": [3, 3, -2],
+			"to": [13, 6, 14],
+			"faces": {
+				"up": {"uv": [0, 0, 10, 14], "tintindex":1, "texture": "#watertex"}
+			}
+		},
+		{
+			"name": "outer",
+			"from": [3, 0, -2],
+			"to": [13, 6, 0],
+			"faces": {
+				"north": {"uv": [0, 0, 10, 6],"tintindex":1, "texture": "#watertex"},
+				"east": {"uv": [0, 0, 2, 6],"tintindex":1, "texture": "#watertex"},
+				"west": {"uv": [0, 0, 2, 6],"tintindex":1, "texture": "#watertex"},
+				"down": {"uv": [0, 0, 10, 2],"tintindex":1, "texture": "#watertex"}
+			}
+		}
+	]
+}

@@ -1,0 +1,8 @@
+{
+    "parent": "block/slab",
+    "textures": {
+        "bottom": "meshi:blocks/sakura_planks",
+        "top": "meshi:blocks/sakura_planks",
+        "side": "meshi:blocks/sakura_planks"
+    }
+}

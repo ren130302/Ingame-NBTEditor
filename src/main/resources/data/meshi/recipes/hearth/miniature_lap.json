@@ -1,0 +1,21 @@
+{
+  "type": "meshi:hearth",
+  "group": "miniature",
+  "pattern": [
+    "R#R",
+    "#R#",
+    "R#R"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "#": {
+      "item": "minecraft:lapis_lazuli"
+    }
+  },
+  "result": {
+    "item": "meshi:miniature",
+    "count": 2
+  }
+}

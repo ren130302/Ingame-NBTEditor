@@ -33,6 +33,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.config.ModConfigEvent;
@@ -60,6 +61,8 @@ public class NBTEdit {
 		modBusEvent.addListener(NBTEdit::modConfig);
 		modBusEvent.addListener(NBTEdit::registryKeyMapping);
 		modBusEvent.addListener(NBTEdit::onCommonSetup);
+		final ModLoadingContext modLoadingContext = ModLoadingContext.get();
+		modLoadingContext.registerConfig(ModConfig.Type.COMMON, NBTEditConfig.Holder.SPEC, "nbtedit.toml");
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

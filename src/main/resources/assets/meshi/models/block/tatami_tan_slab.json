@@ -1,0 +1,11 @@
+{
+    "parent": "meshi:block/slab_direction",
+    "textures": {
+        "up":"meshi:blocks/tatami_tan",
+        "down":"meshi:blocks/tatami_tan",
+        "north":"meshi:blocks/tatami_tan",
+        "south":"meshi:blocks/tatami_tan",
+        "west":"meshi:blocks/tatami_tan",
+        "east":"meshi:blocks/tatami_tan"
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":  { "model": "meshi:block/ginkgo_log" },
+        "axis=z":   { "model": "meshi:block/ginkgo_log", "x": 90 },
+        "axis=x":   { "model": "meshi:block/ginkgo_log", "x": 90, "y": 90  }
+    }
+}

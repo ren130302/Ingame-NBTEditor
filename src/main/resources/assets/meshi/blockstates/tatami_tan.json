@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north":  { "model": "meshi:block/tatami_tan" , "y": 90},
+        "facing=south":  { "model": "meshi:block/tatami_tan" , "y": 90},
+        "facing=west":   { "model": "meshi:block/tatami_tan"},
+        "facing=east":   { "model": "meshi:block/tatami_tan"}
+    }
+}

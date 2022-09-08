@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "facing=north,type=bottom": { "model": "meshi:block/sakura_slab" ,"y":90},
+        "facing=south,type=bottom": { "model": "meshi:block/sakura_slab" ,"y":90},
+        "facing=east,type=bottom": { "model": "meshi:block/sakura_slab" },
+        "facing=west,type=bottom": { "model": "meshi:block/sakura_slab" },
+        "facing=north,type=top": { "model": "meshi:block/sakura_slab_top","y":90 },
+        "facing=south,type=top": { "model": "meshi:block/sakura_slab_top" ,"y":90},
+        "facing=east,type=top": { "model": "meshi:block/sakura_slab_top" },
+        "facing=west,type=top": { "model": "meshi:block/sakura_slab_top" },
+        "facing=north,type=double": { "model": "meshi:block/sakura_planks","y":90 },
+        "facing=south,type=double": { "model": "meshi:block/sakura_planks" ,"y":90},
+        "facing=east,type=double": { "model": "meshi:block/sakura_planks" },
+        "facing=west,type=double": { "model": "meshi:block/sakura_planks" }
+    }
+}

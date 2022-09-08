@@ -1,0 +1,17 @@
+{
+  "type": "meshi:hearth",
+  "pattern": [
+    "LLL",
+    "L L",
+    "LLL"
+  ],
+  "key": {
+    "L": {
+      "tag": "minecraft:logs"
+    }
+  },
+  "result": {
+    "item": "meshi:jpchest_single",
+    "count": 1
+  }
+}

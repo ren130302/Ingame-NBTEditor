@@ -1,0 +1,17 @@
+{
+  "type": "meshi:grind",
+  "group": "prismarine_shard",
+  "ingredient": {
+    "item": "minecraft:prismarine"
+  },
+  "result":{
+    "item": "minecraft:prismarine_shard",
+    "count": 2
+  },
+  "bonus":{
+    "item": "minecraft:prismarine_crystals",
+    "count": 1
+  },
+  "bonusweight": 0.1,
+  "grindingtime": 800
+}

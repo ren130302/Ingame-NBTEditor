@@ -1,0 +1,24 @@
+{
+  "type": "meshi:hearth",
+  "group": "indlight",
+  "pattern": [
+    " # ",
+    "PGP",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:dyes/blue"
+    },
+    "G": {
+      "tag": "forge:dusts/glowstone"
+    },
+    "P": {
+      "tag": "forge:glass_panes/colorless"
+    }
+  },
+  "result": {
+    "item": "meshi:indlight_blue",
+    "count": 4
+  }
+}

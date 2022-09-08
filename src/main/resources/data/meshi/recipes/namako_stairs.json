@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "meshi:namako"
+    }
+  },
+  "result": {
+    "item": "meshi:namako_stairs",
+    "count": 4
+  }
+}

@@ -1,0 +1,7 @@
+{
+    "parent": "block/iron_bars_post",
+    "textures": {
+        "particle": "meshi:blocks/bamboo_pane3",
+        "bars": "meshi:blocks/bamboo_pane3"
+    }
+}

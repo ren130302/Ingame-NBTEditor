@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "meshi:blocks/hinokilog_t",
+        "side": "meshi:blocks/hinokilog_s"
+    }
+}

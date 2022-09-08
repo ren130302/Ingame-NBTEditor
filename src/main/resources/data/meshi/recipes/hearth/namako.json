@@ -1,0 +1,20 @@
+{
+  "type": "meshi:hearth",
+  "pattern": [
+    "PKP",
+    "KPK",
+    "PKP"
+  ],
+  "key": {
+    "P": {
+      "item": "meshi:plaster"
+    },
+    "K": {
+      "item": "meshi:kawara"
+    }
+  },
+  "result": {
+    "item": "meshi:namako",
+    "count": 8
+  }
+}

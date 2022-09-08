@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "meshi:blocks/maplelog_t",
+        "side": "meshi:blocks/maplelog_s"
+    }
+}

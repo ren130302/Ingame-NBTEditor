@@ -1,0 +1,8 @@
+{
+    "parent": "block/slab_top",
+    "textures": {
+        "bottom": "meshi:blocks/checkered_oak",
+        "top": "meshi:blocks/checkered_oak",
+        "side": "meshi:blocks/checkered_oak"
+    }
+}

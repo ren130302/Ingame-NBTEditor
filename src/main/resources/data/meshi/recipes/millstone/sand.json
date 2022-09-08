@@ -1,0 +1,12 @@
+{
+  "type": "meshi:grind",
+  "group": "clay_ball",
+  "ingredient": {
+    "item": "minecraft:sand"
+  },
+  "result":{
+    "item": "minecraft:clay_ball",
+    "count": 1
+  },
+  "grindingtime": 1600
+}

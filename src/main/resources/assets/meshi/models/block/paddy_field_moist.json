@@ -1,0 +1,5 @@
+{   "parent": "meshi:block/paddy_field",
+    "textures": {
+        "top": "block/farmland_moist"
+    }
+}

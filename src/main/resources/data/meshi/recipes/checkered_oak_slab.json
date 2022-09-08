@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "checkered_slab",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "meshi:checkered_oak"
+    }
+  },
+  "result": {
+    "item": "meshi:checkered_oak_slab",
+    "count": 6
+  }
+}

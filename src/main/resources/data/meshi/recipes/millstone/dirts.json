@@ -1,0 +1,13 @@
+{
+  "type": "meshi:grind",
+  "group": "clay_ball",
+  "ingredient": {
+    "tag": "meshi:dirt_like"
+  },
+  "requestcount":2,
+  "result":{
+    "item": "minecraft:clay_ball",
+    "count": 1
+  },
+  "grindingtime": 1000
+}

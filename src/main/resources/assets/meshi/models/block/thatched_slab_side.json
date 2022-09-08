@@ -1,0 +1,8 @@
+{
+    "parent": "meshi:block/vertical_slab",
+    "textures": {
+        "bottom": "meshi:blocks/thatched",
+        "top": "meshi:blocks/thatched",
+        "side": "meshi:blocks/thatched"
+    }
+}

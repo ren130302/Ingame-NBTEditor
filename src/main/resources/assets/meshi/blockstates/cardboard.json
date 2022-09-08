@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north":  [{ "model": "meshi:block/cardboard" , "y": 180},{ "model": "meshi:block/cardboard2" , "y": 180}],
+        "facing=south":  [{ "model": "meshi:block/cardboard" },{ "model": "meshi:block/cardboard2" }],
+        "facing=west":   [{ "model": "meshi:block/cardboard", "y": 90},{ "model": "meshi:block/cardboard2", "y": 90}],
+        "facing=east":   [{ "model": "meshi:block/cardboard", "y": 270},{ "model": "meshi:block/cardboard2", "y": 270}]
+    }
+}

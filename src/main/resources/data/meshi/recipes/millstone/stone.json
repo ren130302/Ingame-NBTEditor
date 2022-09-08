@@ -1,0 +1,17 @@
+{
+  "type": "meshi:grind",
+  "group": "gravel",
+  "ingredient": {
+    "item": "minecraft:stone"
+  },
+  "result":{
+    "item": "minecraft:gravel",
+    "count": 1
+  },
+  "bonus":{
+    "item": "minecraft:sand",
+    "count": 1
+  },
+  "bonusweight": 0.5,
+  "grindingtime": 1000
+}

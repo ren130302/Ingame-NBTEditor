@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube_directional",
+    "textures": {
+        "particle":"meshi:blocks/tatami",
+        "up":"meshi:blocks/tatami",
+        "down":"meshi:blocks/tatami",
+        "north":"meshi:blocks/tatami",
+        "south":"meshi:blocks/tatami",
+        "west":"meshi:blocks/tatami",
+        "east":"meshi:blocks/tatami"
+    }
+}

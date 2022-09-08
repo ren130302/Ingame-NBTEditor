@@ -1,0 +1,20 @@
+{
+    "multipart": [
+        {"apply": { "model": "meshi:block/andon_outer" }},
+        { "when": {"bottom":"true"},
+          "apply": { "model": "meshi:block/andon_leg" }
+        },
+        { "when": {"facing":"north"},
+          "apply": { "model": "meshi:block/andon_inner" , "y": 180}
+        },
+        { "when": {"facing":"south"},
+          "apply": { "model": "meshi:block/andon_inner" }
+        },
+        { "when": {"facing":"west"},
+          "apply": { "model": "meshi:block/andon_inner" , "y": 90}
+        },
+        { "when": {"facing":"east"},
+          "apply": { "model": "meshi:block/andon_inner" , "y": 270}
+        }
+    ]
+}

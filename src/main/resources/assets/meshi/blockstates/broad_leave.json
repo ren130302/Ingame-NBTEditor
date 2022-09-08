@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "variant=red":  { "model": "meshi:broad_leave" },
+        "variant=green":  { "model": "meshi:broad_leave" },
+        "variant=yellow":  { "model": "meshi:broad_leave" },
+        "variant=orange":  { "model": "meshi:broad_leave" }
+    }
+}

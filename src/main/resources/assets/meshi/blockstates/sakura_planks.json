@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north":  { "model": "meshi:block/sakura_planks" , "y": 90},
+        "facing=south":  { "model": "meshi:block/sakura_planks" , "y": 90},
+        "facing=west":   { "model": "meshi:block/sakura_planks"},
+        "facing=east":   { "model": "meshi:block/sakura_planks"}
+    }
+}

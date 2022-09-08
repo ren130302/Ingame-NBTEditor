@@ -1,0 +1,8 @@
+{
+    "parent": "block/iron_bars_cap",
+    "textures": {
+        "particle": "meshi:blocks/bamboo_pane3",
+        "bars": "meshi:blocks/bamboo_pane3",
+        "edge": "meshi:blocks/bamboo_pane3"
+    }
+}

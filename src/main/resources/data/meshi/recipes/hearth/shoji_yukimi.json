@@ -1,0 +1,23 @@
+{
+  "type": "meshi:hearth",
+  "pattern": [
+    "SPS",
+    "PSP",
+    "SGS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "G": {
+      "item": "minecraft:glass_pane"
+    }
+  },
+  "result": {
+    "item": "meshi:shoji_yukimi",
+    "count": 1
+  }
+}

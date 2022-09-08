@@ -1,0 +1,17 @@
+{
+  "type": "meshi:hearth",
+  "group": "tatami",
+  "pattern": [
+    "T"
+  ],
+  "key": {
+    "T": {
+      "item": "meshi:tatami"
+    }
+  },
+  "result": {
+    "item": "meshi:tatami_tan",
+    "count": 1
+  },
+  "cookingtime": 200
+}

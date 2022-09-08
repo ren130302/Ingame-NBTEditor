@@ -1,0 +1,17 @@
+{
+  "type": "meshi:hearth",
+  "pattern": [
+    " S ",
+    "S S",
+    " S "
+  ],
+  "key": {
+    "S": {
+      "tag": "forge:cobblestone"
+    }
+  },
+  "result": {
+    "item": "meshi:shuriken_stone",
+    "count": 10
+  }
+}

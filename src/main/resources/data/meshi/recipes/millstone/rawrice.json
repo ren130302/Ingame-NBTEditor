@@ -1,0 +1,12 @@
+{
+  "type": "meshi:grind",
+  "ingredient": {
+    "item": "meshi:rice_seed"
+  },
+  "requestcount":4,
+  "result":{
+    "item": "meshi:rawrice",
+    "count": 1
+  },
+  "grindingtime": 400
+}

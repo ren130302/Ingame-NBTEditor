@@ -1,0 +1,8 @@
+{
+    "variants": {
+         "facing=south": { "model": "meshi:block/manekineko","y":180},
+         "facing=west": { "model": "meshi:block/manekineko","y":270},
+         "facing=north": { "model": "meshi:block/manekineko"},
+         "facing=east": { "model": "meshi:block/manekineko","y":90}
+    }
+}

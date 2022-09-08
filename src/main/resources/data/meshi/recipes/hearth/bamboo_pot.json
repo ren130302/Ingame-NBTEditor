@@ -1,0 +1,15 @@
+{
+  "type": "meshi:hearth",
+  "pattern": [
+    "W"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:flower_pot"
+    }
+  },
+  "result": {
+    "item": "meshi:bamboo_pot",
+    "count": 1
+  }
+}

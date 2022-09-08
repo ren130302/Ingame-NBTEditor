@@ -1,0 +1,12 @@
+{
+  "type": "meshi:grind",
+  "group": "clay_ball",
+  "ingredient": {
+    "tag": "meshi:terracottas"
+  },
+  "result":{
+    "item": "minecraft:clay_ball",
+    "count": 2
+  },
+  "grindingtime": 1600
+}

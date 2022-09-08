@@ -1,0 +1,17 @@
+{
+  "type": "meshi:hearth",
+  "pattern": [
+    " S ",
+    "S S",
+    " S "
+  ],
+  "key": {
+    "S": {
+      "tag": "forge:ingots/iron"
+    }
+  },
+  "result": {
+    "item": "meshi:shuriken_iron",
+    "count": 30
+  }
+}

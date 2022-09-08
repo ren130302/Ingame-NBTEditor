@@ -1,0 +1,21 @@
+{
+  "type": "meshi:hearth",
+  "pattern": [
+    "#T#",
+    "###",
+    "#T#"
+  ],
+  "key": {
+    "#": {
+      "item": "meshi:sakura_gem"
+    },
+    "T": {
+      "tag": "meshi:axe"
+    }
+  },
+  "result": {
+    "item": "minecraft:wooden_axe",
+    "count": 1
+  },
+  "cookingtime": 24000
+}

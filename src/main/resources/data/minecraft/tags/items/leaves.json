@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "meshi:sakura_leave",
+    "meshi:maple_leave",
+    "meshi:ginkgo_leave",
+    "meshi:hinoki_leave"
+  ]
+}

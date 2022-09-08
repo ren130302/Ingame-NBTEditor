@@ -1,0 +1,8 @@
+{
+    "parent": "meshi:block/bamboo_pane_side_alt",
+    "textures": {
+        "particle": "meshi:blocks/noren_purple",
+        "bars": "meshi:blocks/noren_purple",
+        "edge": "meshi:blocks/noren_purple"
+    }
+}

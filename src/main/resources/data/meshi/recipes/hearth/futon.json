@@ -1,0 +1,16 @@
+{
+  "type": "meshi:hearth",
+  "pattern": [
+    "WWW",
+    "WWW"
+  ],
+  "key": {
+    "W": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "result": {
+    "item": "meshi:huton",
+    "count": 1
+  }
+}

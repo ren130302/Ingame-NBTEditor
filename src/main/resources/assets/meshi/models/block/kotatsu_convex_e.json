@@ -1,0 +1,34 @@
+{
+	"textures": {
+		"cover": "meshi:blocks/kotatsu_cover",
+		"table_top": "meshi:blocks/kotatsu_table_top",
+		"table_side": "meshi:blocks/kotatsu_table_side",
+		"particle": "meshi:blocks/kotatsu_cover"
+	},
+	"elements": [
+		{
+			"name": "base",
+			"from": [3, 0, 0],
+			"to": [16, 10, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 13, 10], "texture": "#table_side"},
+				"east": {"uv": [0, 0, 16, 10], "texture": "#table_side"},
+				"south": {"uv": [3, 0, 16, 10], "texture": "#table_side"},
+				"west": {"uv": [0, 0, 16, 10], "texture": "#table_side"},
+				"up": {"uv": [3, 0, 16, 16], "texture": "#table_top"},
+				"down": {"uv": [3, 0, 16, 16], "texture": "#table_top"}
+			}
+		},
+		{
+			"name": "cover_w",
+			"from": [3, -2, 0],
+			"to": [5, 7, 16],
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [8, 8, 8]},
+			"faces": {
+				"east": {"uv": [0, 0, 16, 9], "texture": "#cover"},
+				"west": {"uv": [0, 0, 16, 9], "texture": "#cover"},
+				"down": {"uv": [16, 11, 0, 9], "texture": "#cover","rotation":90}
+			}
+		}
+	]
+}

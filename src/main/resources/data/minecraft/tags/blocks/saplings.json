@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "meshi:sakura_sapling",
+    "meshi:maple_sapling",
+    "meshi:ginkgo_sapling",
+    "meshi:hinoki_sapling"
+  ]
+}

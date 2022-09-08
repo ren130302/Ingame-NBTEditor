@@ -1,0 +1,15 @@
+{
+  "type": "meshi:hearth",
+  "pattern": [
+    "WW"
+  ],
+  "key": {
+    "W": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": {
+    "item": "meshi:wall_shelf",
+    "count": 1
+  }
+}

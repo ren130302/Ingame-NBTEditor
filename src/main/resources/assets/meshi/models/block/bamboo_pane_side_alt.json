@@ -1,0 +1,17 @@
+{
+    "ambientocclusion": false,
+    "textures": {
+        "particle": "meshi:blocks/bamboo_pane",
+        "bars": "meshi:blocks/bamboo_pane",
+        "edge": "meshi:blocks/bamboo_pane"
+    },
+    "elements": [
+        {   "from": [ 8, 0, 8 ],
+            "to": [ 8, 16, 16 ],
+            "faces": {
+                "west": { "uv": [ 8, 0, 0, 16 ], "texture": "#bars" },
+                "east": { "uv": [ 0, 0, 8, 16 ], "texture": "#bars" }
+            }
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+{
+	"parent":"meshi:block/bamboo_pot",
+	"textures": {
+		"plant": "meshi:blocks/bambooshoot_0707"
+	}
+}

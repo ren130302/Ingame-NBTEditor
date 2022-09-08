@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "meshi:sakura_log",
+    "meshi:maple_log",
+    "meshi:ginkgo_log",
+    "meshi:hinoki_log"
+  ]
+}

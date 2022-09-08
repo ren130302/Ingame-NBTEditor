@@ -1,0 +1,23 @@
+{
+  "type": "meshi:hearth",
+  "pattern": [
+    "SSS",
+    "SWS",
+    "SLS"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:water_bucket"
+    },
+    "S": {
+      "tag": "forge:cobblestone"
+    },
+    "L": {
+      "item": "minecraft:lava_bucket"
+    }
+  },
+  "result": {
+    "item": "meshi:spring_spawner",
+    "count": 1
+  }
+}

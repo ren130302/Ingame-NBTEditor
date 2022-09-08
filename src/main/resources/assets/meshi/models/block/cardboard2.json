@@ -1,0 +1,6 @@
+{
+    "parent": "meshi:block/cardboard",
+    "textures": {
+        "side_long":"meshi:blocks/cardboard_side_long2"
+    }
+}

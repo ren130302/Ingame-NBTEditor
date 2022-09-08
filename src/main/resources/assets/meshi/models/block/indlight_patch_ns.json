@@ -1,0 +1,12 @@
+{
+    "parent": "meshi:block/indlight",
+    "elements": [
+        {   "from": [ 7, 7, 15 ],
+            "to": [ 9, 9, 16 ],
+            "faces": {
+                "up":  { "uv": [  0, 0, 2, 1 ],"tintindex":1, "texture": "#all" }
+            }
+        }
+    ]
+
+}

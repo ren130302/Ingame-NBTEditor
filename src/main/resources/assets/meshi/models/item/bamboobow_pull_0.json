@@ -1,0 +1,6 @@
+{
+    "parent": "meshi:item/bamboobow",
+    "textures": {
+        "layer0": "meshi:items/bamboobow_pull_0"
+    }
+}

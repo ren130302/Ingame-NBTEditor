@@ -1,0 +1,10 @@
+{
+    "variants": {
+         "facing=up": { "model": "meshi:block/miniature","x":180},
+         "facing=down": { "model": "meshi:block/miniature"},
+         "facing=south": { "model": "meshi:block/miniature","x":90},
+         "facing=west": { "model": "meshi:block/miniature","x":90,"y":90},
+         "facing=north": { "model": "meshi:block/miniature","x":90,"y":180},
+         "facing=east": { "model": "meshi:block/miniature","x":90,"y":270}
+    }
+}

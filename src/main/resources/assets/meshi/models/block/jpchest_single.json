@@ -1,0 +1,8 @@
+{
+    "parent": "block/orientable",
+    "textures": {
+        "top": "meshi:blocks/jpchest_other",
+        "side": "meshi:blocks/jpchest_other",
+        "front": "meshi:blocks/jpchest_front"
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "meshi:hearth",
+  "pattern": [
+    "BBB",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:blue_wool"
+    }
+  },
+  "result": {
+    "item": "meshi:noren_blue",
+    "count": 8
+  }
+}

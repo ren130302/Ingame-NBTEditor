@@ -1,0 +1,20 @@
+{
+  "type": "meshi:hearth",
+  "pattern": [
+    "SSS",
+    "WWW",
+    "WWW"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:string"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "result": {
+    "item": "meshi:fukuro",
+    "count": 1
+  }
+}

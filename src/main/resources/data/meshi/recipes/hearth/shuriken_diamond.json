@@ -1,0 +1,17 @@
+{
+  "type": "meshi:hearth",
+  "pattern": [
+    " S ",
+    "S S",
+    " S "
+  ],
+  "key": {
+    "S": {
+      "tag": "forge:gems/diamond"
+    }
+  },
+  "result": {
+    "item": "meshi:shuriken_diamond",
+    "count": 60
+  }
+}

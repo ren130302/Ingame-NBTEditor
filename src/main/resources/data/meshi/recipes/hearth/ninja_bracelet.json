@@ -1,0 +1,20 @@
+{
+  "type": "meshi:hearth",
+  "pattern": [
+    "MML",
+    "M L",
+    "LLL"
+  ],
+  "key": {
+    "M": {
+      "item": "meshi:maple_ingot"
+    },
+    "L": {
+      "tag": "forge:leather"
+    }
+  },
+  "result": {
+    "item": "meshi:ninja_bracelet",
+    "count": 1
+  }
+}

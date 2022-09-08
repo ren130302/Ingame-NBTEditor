@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " G ",
+    "BFB",
+    "WWW"
+  ],
+  "key": {
+    "G": {
+      "item": "meshi:maple_ingot"
+    },
+    "B": {
+      "item": "minecraft:iron_bars"
+    },
+    "F": {
+      "item": "minecraft:flint_and_steel"
+    },
+    "W": {
+      "item": "minecraft:charcoal"
+    }
+  },
+  "result": {
+    "item": "meshi:hearth",
+    "count": 1
+  }
+}

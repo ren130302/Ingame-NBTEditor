@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "meshi:maple_ore"
+  },
+  "result": "meshi:maple_ingot",
+  "experience": 0.7,
+  "cookingtime": 200
+}

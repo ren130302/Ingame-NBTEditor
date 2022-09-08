@@ -1,0 +1,17 @@
+{
+  "type": "meshi:grind",
+  "ingredient": {
+    "tag": "meshi:diorites"
+  },
+  "requestcount":1,
+  "result":{
+    "item": "minecraft:cobblestone",
+    "count": 1
+  },
+  "bonus":{
+    "item": "minecraft:quartz",
+    "count": 1
+  },
+  "bonusweight": 0.5,
+  "grindingtime": 1000
+}

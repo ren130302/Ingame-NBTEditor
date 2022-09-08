@@ -1,0 +1,23 @@
+{
+  "type": "meshi:hearth",
+  "pattern": [
+    "SSS",
+    "S#S",
+    "STS"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:paper"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "T": {
+      "item": "minecraft:torch"
+    }
+  },
+  "result": {
+    "item": "meshi:andon",
+    "count": 2
+  }
+}

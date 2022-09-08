@@ -1,0 +1,20 @@
+{
+  "type": "meshi:hearth",
+  "pattern": [
+    "MM",
+    " S",
+    " S"
+  ],
+  "key": {
+    "M": {
+      "item": "meshi:maple_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "meshi:paddy_field_hoe",
+    "count": 1
+  }
+}

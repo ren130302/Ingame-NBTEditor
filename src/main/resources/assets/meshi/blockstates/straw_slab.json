@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "facing=south,double=false": { "model": "meshi:block/straw_slab_side" },
+        "facing=north,double=false": { "model": "meshi:block/straw_slab_side" ,"y":180 ,"uvlock":true},
+        "facing=east,double=false": {"model": "meshi:block/straw_slab_side" ,"y":270 ,"uvlock":true},
+        "facing=west,double=false": {"model": "meshi:block/straw_slab_side" ,"y":90 ,"uvlock":true},
+        "facing=down,double=false": { "model": "meshi:block/straw_slab"},
+        "facing=up,double=false": { "model": "meshi:block/straw_slab_top"},
+        "facing=south,double=true": { "model": "meshi:block/straw_block" },
+        "facing=north,double=true": { "model": "meshi:block/straw_block" ,"y":180 ,"uvlock":true},
+        "facing=east,double=true": {"model": "meshi:block/straw_block" ,"y":270 ,"uvlock":true},
+        "facing=west,double=true": {"model": "meshi:block/straw_block" ,"y":90 ,"uvlock":true},
+        "facing=down,double=true": { "model": "meshi:block/straw_block" },
+        "facing=up,double=true": { "model": "meshi:block/straw_block" }
+    }
+}

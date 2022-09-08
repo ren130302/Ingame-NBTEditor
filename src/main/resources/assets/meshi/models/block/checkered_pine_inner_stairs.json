@@ -1,0 +1,8 @@
+{
+    "parent": "block/inner_stairs",
+    "textures": {
+        "bottom": "meshi:blocks/checkered_pine",
+        "top": "meshi:blocks/checkered_pine",
+        "side": "meshi:blocks/checkered_pine"
+    }
+}

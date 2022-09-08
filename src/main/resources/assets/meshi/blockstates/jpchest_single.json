@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=west":  { "model": "meshi:block/jpchest_single","y": 270 },
+        "facing=north":   { "model": "meshi:block/jpchest_single" },
+        "facing=east":   { "model": "meshi:block/jpchest_single", "y": 90 },
+        "facing=south": { "model": "meshi:block/jpchest_single" ,"y": 180}
+    }
+}

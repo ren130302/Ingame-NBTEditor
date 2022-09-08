@@ -1,0 +1,20 @@
+{
+    "textures": {
+        "particle": "meshi:blocks/huton_feet_top",
+        "top": "meshi:blocks/huton_feet_top",
+        "bottom": "meshi:blocks/huton_feet_bottom",
+        "side": "meshi:blocks/huton_feet_side"
+    },
+    "elements": [
+        {   "from": [ 0, 0, 0 ],
+            "to": [ 16, 4, 16 ],
+            "faces": {
+                "up":    { "uv": [  0, 16, 16,  0 ], "texture": "#top", "rotation": 90 },
+                "north": { "uv": [  0,  0, 16,  4 ], "texture": "#side" },
+                "west":  { "uv": [  0,  0, 16,  4 ], "texture": "#side" },
+                "east":  { "uv": [ 16,  0,  0,  4 ], "texture": "#side" },
+                "down":  { "uv": [  0,  0, 16, 16 ], "texture": "#bottom" }
+            }
+        }
+    ]
+}

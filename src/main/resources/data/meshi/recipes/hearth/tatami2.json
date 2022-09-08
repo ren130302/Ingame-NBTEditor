@@ -1,0 +1,21 @@
+{
+  "type": "meshi:hearth",
+  "group": "tatami",
+  "pattern": [
+    "WWW",
+    "SSS"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:tall_grass"
+    },
+    "S": {
+      "item": "meshi:straw"
+    }
+  },
+  "result": {
+    "item": "meshi:tatami",
+    "count": 3
+  },
+  "cookingtime": 200
+}

@@ -1,0 +1,166 @@
+{
+    "multipart": [
+        { "when": {"facing":"up"},
+          "apply": { "model": "meshi:block/indlight" ,"x":90}
+        },
+        { "when": {"facing":"up","south":"true"},
+          "apply": { "model": "meshi:block/indlight_sub_ns" ,"x":90}
+        },
+        { "when": {"facing":"up","south":"false"},
+          "apply": { "model": "meshi:block/indlight_patch_ns","x":90,"y":180 }
+        },
+        { "when": {"facing":"up","north":"true"},
+          "apply": { "model": "meshi:block/indlight_sub_ns","x":90,"y":180 }
+        },
+        { "when": {"facing":"up","north":"false"},
+          "apply": { "model": "meshi:block/indlight_patch_ns","x":90}
+        },
+        { "when": {"facing":"up","east":"true"},
+          "apply": { "model": "meshi:block/indlight_sub_ew","x":90}
+        },
+        { "when": {"facing":"up","east":"false"},
+          "apply": { "model": "meshi:block/indlight_patch_ew","x":90}
+        },
+        { "when": {"facing":"up","west":"true"},
+          "apply": { "model": "meshi:block/indlight_sub_ew","x":90,"y":180}
+        },
+        { "when": {"facing":"up","west":"false"},
+          "apply": { "model": "meshi:block/indlight_patch_ew","x":90,"y":180}
+        },
+        { "when": {"facing":"down"},
+          "apply": { "model": "meshi:block/indlight" ,"x":270}
+        },
+        { "when": {"facing":"down","south":"true"},
+          "apply": { "model": "meshi:block/indlight_sub_ns" ,"x":270}
+        },
+        { "when": {"facing":"down","south":"false"},
+          "apply": { "model": "meshi:block/indlight_patch_ns","x":270,"y":180 }
+        },
+        { "when": {"facing":"down","north":"true"},
+          "apply": { "model": "meshi:block/indlight_sub_ns","x":270,"y":180 }
+        },
+        { "when": {"facing":"down","north":"false"},
+          "apply": { "model": "meshi:block/indlight_patch_ns","x":270}
+        },
+        { "when": {"facing":"down","east":"true"},
+          "apply": { "model": "meshi:block/indlight_sub_ew","x":9270}
+        },
+        { "when": {"facing":"down","east":"false"},
+          "apply": { "model": "meshi:block/indlight_patch_ew","x":270}
+        },
+        { "when": {"facing":"down","west":"true"},
+          "apply": { "model": "meshi:block/indlight_sub_ew","x":270,"y":180}
+        },
+        { "when": {"facing":"down","west":"false"},
+          "apply": { "model": "meshi:block/indlight_patch_ew","x":270,"y":180}
+        },
+        { "when": {"facing":"south"},
+          "apply": { "model": "meshi:block/indlight" }
+        },
+        { "when": {"facing":"south","south":"true"},
+          "apply": { "model": "meshi:block/indlight_sub_ns" }
+        },
+        { "when": {"facing":"south","south":"false"},
+          "apply": { "model": "meshi:block/indlight_patch_ns","x":180,"y":180 }
+        },
+        { "when": {"facing":"south","north":"true"},
+          "apply": { "model": "meshi:block/indlight_sub_ns","x":180,"y":180 }
+        },
+        { "when": {"facing":"south","north":"false"},
+          "apply": { "model": "meshi:block/indlight_patch_ns"}
+        },
+        { "when": {"facing":"south","east":"true"},
+          "apply": { "model": "meshi:block/indlight_sub_ew"}
+        },
+        { "when": {"facing":"south","east":"false"},
+          "apply": { "model": "meshi:block/indlight_patch_ew"}
+        },
+        { "when": {"facing":"south","west":"true"},
+          "apply": { "model": "meshi:block/indlight_sub_ew","x":180,"y":180}
+        },
+        { "when": {"facing":"south","west":"false"},
+          "apply": { "model": "meshi:block/indlight_patch_ew","x":180,"y":180}
+        },
+        { "when": {"facing":"north"},
+          "apply": { "model": "meshi:block/indlight" ,"y":180 }
+        },
+        { "when": {"facing":"north","south":"true"},
+          "apply": { "model": "meshi:block/indlight_sub_ns" ,"y":180 }
+        },
+        { "when": {"facing":"north","south":"false"},
+          "apply": { "model": "meshi:block/indlight_patch_ns","x":180}
+        },
+        { "when": {"facing":"north","north":"true"},
+          "apply": { "model": "meshi:block/indlight_sub_ns","x":180 }
+        },
+        { "when": {"facing":"north","north":"false"},
+          "apply": { "model": "meshi:block/indlight_patch_ns","y":180 }
+        },
+        { "when": {"facing":"north","east":"true"},
+          "apply": { "model": "meshi:block/indlight_sub_ew","y":180 }
+        },
+        { "when": {"facing":"north","east":"false"},
+          "apply": { "model": "meshi:block/indlight_patch_ew","y":180 }
+        },
+        { "when": {"facing":"north","west":"true"},
+          "apply": { "model": "meshi:block/indlight_sub_ew","x":180}
+        },
+        { "when": {"facing":"north","west":"false"},
+          "apply": { "model": "meshi:block/indlight_patch_ew","x":180}
+        },
+        { "when": {"facing":"east"},
+          "apply": { "model": "meshi:block/indlight" ,"y":270}
+        },
+        { "when": {"facing":"east","south":"true"},
+          "apply": { "model": "meshi:block/indlight_sub_ns" ,"y":270}
+        },
+        { "when": {"facing":"east","south":"false"},
+          "apply": { "model": "meshi:block/indlight_patch_ns","x":180,"y":90 }
+        },
+        { "when": {"facing":"east","north":"true"},
+          "apply": { "model": "meshi:block/indlight_sub_ns","x":180,"y":90 }
+        },
+        { "when": {"facing":"east","north":"false"},
+          "apply": { "model": "meshi:block/indlight_patch_ns","y":270}
+        },
+        { "when": {"facing":"east","east":"true"},
+          "apply": { "model": "meshi:block/indlight_sub_ew","y":270}
+        },
+        { "when": {"facing":"east","east":"false"},
+          "apply": { "model": "meshi:block/indlight_patch_ew","y":270}
+        },
+        { "when": {"facing":"east","west":"true"},
+          "apply": { "model": "meshi:block/indlight_sub_ew","x":180,"y":90}
+        },
+        { "when": {"facing":"east","west":"false"},
+          "apply": { "model": "meshi:block/indlight_patch_ew","x":180,"y":90}
+        },
+        { "when": {"facing":"west"},
+          "apply": { "model": "meshi:block/indlight" ,"y":90}
+        },
+        { "when": {"facing":"west","south":"true"},
+          "apply": { "model": "meshi:block/indlight_sub_ns" ,"y":90}
+        },
+        { "when": {"facing":"west","south":"false"},
+          "apply": { "model": "meshi:block/indlight_patch_ns","x":180,"y":270 }
+        },
+        { "when": {"facing":"west","north":"true"},
+          "apply": { "model": "meshi:block/indlight_sub_ns","x":180,"y":270 }
+        },
+        { "when": {"facing":"west","north":"false"},
+          "apply": { "model": "meshi:block/indlight_patch_ns","y":90}
+        },
+        { "when": {"facing":"west","east":"true"},
+          "apply": { "model": "meshi:block/indlight_sub_ew","y":90}
+        },
+        { "when": {"facing":"west","east":"false"},
+          "apply": { "model": "meshi:block/indlight_patch_ew","y":90}
+        },
+        { "when": {"facing":"west","west":"true"},
+          "apply": { "model": "meshi:block/indlight_sub_ew","x":180,"y":270}
+        },
+        { "when": {"facing":"west","west":"false"},
+          "apply": { "model": "meshi:block/indlight_patch_ew","x":180,"y":270}
+        }
+    ]
+}

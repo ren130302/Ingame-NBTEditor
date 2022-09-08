@@ -1,0 +1,20 @@
+{
+  "type": "meshi:hearth",
+  "pattern": [
+    "SSS",
+    "#S#",
+    "SSS"
+  ],
+  "key": {
+    "#": {
+      "item": "meshi:maple_ingot"
+    },
+    "S": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "item": "meshi:millstone",
+    "count": 1
+  }
+}

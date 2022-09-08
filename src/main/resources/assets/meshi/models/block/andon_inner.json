@@ -1,0 +1,16 @@
+{
+    "textures": {
+        "inner": "meshi:blocks/andon_inner"
+    },
+    "elements": [
+        {   "from": [ 5, 4, 5 ],
+            "to": [ 11, 14, 11 ],
+            "faces": {
+                "north": { "uv": [ 0, 0, 4, 10 ], "texture": "#inner" },
+                "east":  { "uv": [ 4, 0, 8, 10 ], "texture": "#inner" },
+                "south": { "uv": [ 8, 0,12, 10 ], "texture": "#inner" },
+                "west":  { "uv": [12, 0,16, 10 ], "texture": "#inner" }
+            }
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+  "type": "meshi:hearth_shapeless",
+  "ingredients": [
+    {
+      "item": "meshi:rawrice"
+    },
+    {
+      "item": "minecraft:beef"
+    },
+    {
+      "item": "minecraft:egg"
+    }
+  ],
+  "result": {
+    "item": "meshi:meshi_gyu"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "meshi:hearth_shapeless",
+  "ingredients": [
+    {
+      "item": "meshi:rawrice"
+    }
+  ],
+  "result": {
+    "item": "meshi:meshi"
+  }
+}

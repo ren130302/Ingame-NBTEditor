@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "meshi:thatched"
+    }
+  },
+  "result": {
+    "item": "meshi:thatched_stairs",
+    "count": 4
+  }
+}

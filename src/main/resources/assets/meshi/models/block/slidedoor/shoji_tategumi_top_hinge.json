@@ -1,0 +1,7 @@
+{
+    "parent": "meshi:block/slidedoor/slide_door_top_rh",
+    "textures": {
+        "top": "meshi:blocks/shoji2_top",
+        "top_back": "meshi:blocks/shoji2_top_back"
+    }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "meshi:hearth",
+  "pattern": [
+    "BPB",
+    "BPB"
+  ],
+  "key": {
+    "P": {
+      "item": "meshi:bamboo_pane2"
+    },
+    "B": {
+      "item": "minecraft:bamboo"
+    }
+  },
+  "result": {
+    "item": "meshi:bamboo_pane3",
+    "count": 6
+  }
+}

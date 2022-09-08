@@ -1,0 +1,18 @@
+{
+    "variants": {
+        "attached=false":[
+        	{ "model": "meshi:block/bamboo_pot" },
+        	{ "model": "meshi:block/bamboo_pot_0101" },
+        	{ "model": "meshi:block/bamboo_pot_0214" },
+        	{ "model": "meshi:block/bamboo_pot_0303" },
+        	{ "model": "meshi:block/bamboo_pot_0314" },
+        	{ "model": "meshi:block/bamboo_pot_0401" },
+        	{ "model": "meshi:block/bamboo_pot_0505" },
+        	{ "model": "meshi:block/bamboo_pot_0707" },
+        	{ "model": "meshi:block/bamboo_pot_1224" },
+        	{ "model": "meshi:block/bamboo_pot_father" },
+        	{ "model": "meshi:block/bamboo_pot_mother" }
+        ],
+        "attached=true": { "model": "meshi:block/bamboo_pot_none" }
+    }
+}

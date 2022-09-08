@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_top",
+    "textures": {
+        "top": "meshi:blocks/spring_spawner_top",
+        "side": "meshi:blocks/spring_spawner_side"
+    }
+}
