@@ -10,11 +10,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class BMEnchantments {
-
-    /*
-     *
-     * UnbreakingBracelet
-     */
     private static final DeferredRegister<Enchantment> DEF_REG = BambooMod.REGISTER
 	    .create(ForgeRegistries.ENCHANTMENTS);
     /* COMMON */
