@@ -3,7 +3,7 @@ package com.ren130302.bamboo.enchantment;
 import net.minecraft.world.item.enchantment.Enchantment;
 
 public class CriticalThrow extends BMEnchantmentBase {
-    protected CriticalThrow() {
+    public CriticalThrow() {
 	super(Rarity.COMMON);
     }
 

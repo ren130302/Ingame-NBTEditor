@@ -4,7 +4,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.enchantment.Enchantment;
 
 public class Pickpocket extends BMEnchantmentBase {
-    protected Pickpocket() {
+    public Pickpocket() {
 	super(Rarity.UNCOMMON);
     }
 

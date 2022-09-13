@@ -3,7 +3,7 @@ package com.ren130302.bamboo.enchantment;
 import net.minecraft.network.chat.Component;
 
 public class SnipeThrow extends BMEnchantmentBase {
-    protected SnipeThrow() {
+    public SnipeThrow() {
 	super(Rarity.COMMON);
     }
 

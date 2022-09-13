@@ -4,7 +4,7 @@ import net.minecraft.world.item.enchantment.Enchantment;
 
 public class PowerThrow extends BMEnchantmentBase {
 
-    protected PowerThrow() {
+    public PowerThrow() {
 	super(Rarity.COMMON);
     }
 

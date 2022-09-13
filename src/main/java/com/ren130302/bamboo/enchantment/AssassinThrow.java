@@ -3,7 +3,7 @@ package com.ren130302.bamboo.enchantment;
 import net.minecraft.world.item.enchantment.Enchantment;
 
 public class AssassinThrow extends BMEnchantmentBase {
-    protected AssassinThrow() {
+    public AssassinThrow() {
 	super(Rarity.VERY_RARE);
     }
 

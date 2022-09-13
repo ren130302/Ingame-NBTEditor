@@ -4,7 +4,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.enchantment.Enchantments;
 
 public class UnbreakingBracelet extends BMEnchantmentBase {
-    protected UnbreakingBracelet() {
+    public UnbreakingBracelet() {
 	super(Rarity.UNCOMMON);
     }
 

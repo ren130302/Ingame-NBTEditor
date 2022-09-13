@@ -3,7 +3,7 @@ package com.ren130302.bamboo.enchantment;
 import net.minecraft.network.chat.Component;
 
 public class MultiThrow extends BMEnchantmentBase {
-    protected MultiThrow() {
+    public MultiThrow() {
 	super(Rarity.RARE);
     }
 

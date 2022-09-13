@@ -3,7 +3,7 @@ package com.ren130302.bamboo.enchantment;
 import net.minecraft.world.item.enchantment.Enchantment;
 
 public class PoisonThrow extends BMEnchantmentBase {
-    protected PoisonThrow() {
+    public PoisonThrow() {
 	super(Rarity.COMMON);
     }
 

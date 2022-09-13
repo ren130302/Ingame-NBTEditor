@@ -4,7 +4,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.enchantment.Enchantment;
 
 public class ReturnThrow extends BMEnchantmentBase {
-    protected ReturnThrow() {
+    public ReturnThrow() {
 	super(Rarity.VERY_RARE);
     }
 

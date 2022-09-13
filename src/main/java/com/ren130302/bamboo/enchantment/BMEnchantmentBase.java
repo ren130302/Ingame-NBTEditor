@@ -1,5 +1,7 @@
 package com.ren130302.bamboo.enchantment;
 
+import com.ren130302.bamboo.BMDefination.Enchantments;
+
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -8,7 +10,7 @@ import net.minecraft.world.item.enchantment.Enchantment;
 public class BMEnchantmentBase extends Enchantment {
 
     protected BMEnchantmentBase(Rarity rarity) {
-	super(rarity, BMEnchantments.Category.BRACELET, new EquipmentSlot[] { EquipmentSlot.MAINHAND });
+	super(rarity, Enchantments.Category.BRACELET, new EquipmentSlot[] { EquipmentSlot.MAINHAND });
     }
 
     @Override

@@ -4,7 +4,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.enchantment.Enchantments;
 
 public class FlameThrow extends BMEnchantmentBase {
-    protected FlameThrow() {
+    public FlameThrow() {
 	super(Rarity.RARE);
     }
 

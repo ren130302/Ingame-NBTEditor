@@ -3,7 +3,7 @@ package com.ren130302.bamboo.enchantment;
 import net.minecraft.world.item.enchantment.Enchantment;
 
 public class QuickThrow extends BMEnchantmentBase {
-    protected QuickThrow() {
+    public QuickThrow() {
 	super(Rarity.COMMON);
     }
 

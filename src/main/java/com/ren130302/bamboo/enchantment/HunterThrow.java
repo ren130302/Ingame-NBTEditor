@@ -3,7 +3,7 @@ package com.ren130302.bamboo.enchantment;
 import net.minecraft.world.item.enchantment.Enchantment;
 
 public class HunterThrow extends BMEnchantmentBase {
-    protected HunterThrow() {
+    public HunterThrow() {
 	super(Rarity.RARE);
     }
 

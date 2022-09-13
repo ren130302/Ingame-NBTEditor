@@ -17,34 +17,35 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 @Mod.EventBusSubscriber(modid = BambooMod.MODID)
 public class BambooMod {
 
-	public static final String MODID = "bambooMod";
+    public static final String MODID = "bambooMod";
 
-	// public static final PacketDispatcher PIPELINE = new PacketDispatcher();
+    // public static final PacketDispatcher PIPELINE = new PacketDispatcher();
 
-	public static final RegisterUtils REGISTER = new RegisterUtils(MODID);
+    public static final RegisterUtils REGISTER = new RegisterUtils(MODID);
 
-	public static BMConfig CONFIG;
+    public static BMConfig CONFIG;
 
-	public BambooMod() {
-		IEventBus modBusEvent = FMLJavaModLoadingContext.get().getModEventBus();
-		modBusEvent.addListener(BambooMod::modConfig);
-		modBusEvent.addListener(BambooMod::onCommonSetup);
-		final ModLoadingContext modLoadingContext = ModLoadingContext.get();
-		modLoadingContext.registerConfig(ModConfig.Type.COMMON, BMConfig.Holder.SPEC, "bamboo.toml");
-		MinecraftForge.EVENT_BUS.register(this);
-	}
+    public BambooMod() {
+	IEventBus modBusEvent = FMLJavaModLoadingContext.get().getModEventBus();
+	modBusEvent.addListener(BambooMod::modConfig);
+	modBusEvent.addListener(BambooMod::onCommonSetup);
+	final ModLoadingContext modLoadingContext = ModLoadingContext.get();
+	modLoadingContext.registerConfig(ModConfig.Type.COMMON, BMConfig.Holder.SPEC, "bamboo.toml");
+	MinecraftForge.EVENT_BUS.register(this);
+	new BMDefination(modBusEvent);
+    }
 
-	public static void onCommonSetup(final FMLCommonSetupEvent event) {
-		// PIPELINE.init();
-	}
+    public static void onCommonSetup(final FMLCommonSetupEvent event) {
+	// PIPELINE.init();
+    }
 
-	@SubscribeEvent
-	public static void onServerStarting(final ServerStartingEvent event) {
+    @SubscribeEvent
+    public static void onServerStarting(final ServerStartingEvent event) {
 
-	}
+    }
 
-	public static void modConfig(final ModConfigEvent event) {
-		final ModConfig config = event.getConfig();
-		BMConfig.init(config);
-	}
+    public static void modConfig(final ModConfigEvent event) {
+	final ModConfig config = event.getConfig();
+	BMConfig.init(config);
+    }
 }

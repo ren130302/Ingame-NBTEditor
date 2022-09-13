@@ -5,7 +5,7 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.MendingEnchantment;
 
 public class InfinityThrow extends BMEnchantmentBase {
-    protected InfinityThrow() {
+    public InfinityThrow() {
 	super(Rarity.RARE);
     }
 
