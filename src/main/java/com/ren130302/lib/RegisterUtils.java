@@ -35,32 +35,20 @@ public class RegisterUtils {
 	return this.modid;
     }
 
-    public static class DefineObject<T> {
-	private final RegistryObject<T> registryObject;
-
-	private DefineObject(DeferredRegister<T> deferredRegister, String name, Supplier<T> target) {
-	    this.registryObject = deferredRegister.register(name, target);
-	}
-
-	public static <T> DefineObject<T> define(DeferredRegister<T> deferredRegister, String name,
-		Supplier<T> target) {
-	    return new DefineObject<>(deferredRegister, name, target);
-	}
-
-	public static <T> DefineObject<T> define(DeferredRegister<T> deferredRegister, String name, T target) {
-	    return new DefineObject<>(deferredRegister, name, () -> target);
-	}
-
-	public static <T> DefineObject<T> define(DeferredRegister<T> deferredRegister, Enum _enum, Supplier<T> target) {
-	    return new DefineObject<>(deferredRegister, _enum.name().toLowerCase(), target);
-	}
-
-	public static <T> DefineObject<T> define(DeferredRegister<T> deferredRegister, Enum _enum, T target) {
-	    return new DefineObject<>(deferredRegister, _enum.name().toLowerCase(), () -> target);
-	}
-
-	public final RegistryObject<T> get() {
-	    return this.registryObject;
-	}
+    public static <T> RegistryObject<T> define(DeferredRegister<T> deferredRegister, String name, Supplier<T> target) {
+	return deferredRegister.register(name, target);
     }
+
+    public static <T> RegistryObject<T> define(DeferredRegister<T> deferredRegister, String name, T target) {
+	return deferredRegister.register(name, () -> target);
+    }
+
+    public static <T> RegistryObject<T> define(DeferredRegister<T> deferredRegister, Enum _enum, Supplier<T> target) {
+	return deferredRegister.register(_enum.name().toLowerCase(), target);
+    }
+
+    public static <T> RegistryObject<T> define(DeferredRegister<T> deferredRegister, Enum _enum, T target) {
+	return deferredRegister.register(_enum.name().toLowerCase(), () -> target);
+    }
+
 }
