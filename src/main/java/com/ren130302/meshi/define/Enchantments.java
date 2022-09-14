@@ -1,5 +1,8 @@
 package com.ren130302.meshi.define;
 
+import java.util.stream.Stream;
+
+import com.ren130302.lib.RegisterUtils;
 import com.ren130302.meshi.BambooMod;
 import com.ren130302.meshi.enchantment.AssassinThrow;
 import com.ren130302.meshi.enchantment.CriticalThrow;
@@ -54,9 +57,7 @@ public enum Enchantments {
 	DeferredRegister<Enchantment> ENCHANTMENTS = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS,
 		BambooMod.MODID);
 
-	for (Enchantments value : values()) {
-	    ENCHANTMENTS.register(value.name().toLowerCase(), () -> value.enchantment());
-	}
+	Stream.of(values()).forEach(value -> RegisterUtils.define(ENCHANTMENTS, value, () -> value.get()));
 
 	ENCHANTMENTS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
@@ -67,7 +68,7 @@ public enum Enchantments {
 	this.enchantment = enchantment;
     }
 
-    public final Enchantment enchantment() {
+    public final Enchantment get() {
 	return this.enchantment;
     }
 

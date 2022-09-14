@@ -1,6 +1,10 @@
 package com.ren130302.meshi.define;
 
+import java.util.stream.Stream;
+
+import com.ren130302.lib.RegisterUtils;
 import com.ren130302.meshi.BambooMod;
+import com.ren130302.meshi.block.Andon;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Item.Properties;
@@ -13,15 +17,13 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public enum Blocks {
 
-    ANDON(new Block(BlockBehaviour.Properties.of(Material.CACTUS)),
+    ANDON(new Andon(BlockBehaviour.Properties.of(Material.CACTUS)),
 	    new Item.Properties().tab(CreativeTabs.ITEM_GROUP.get()));
 
     static {
-	DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, BambooMod.MODID);
+	final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, BambooMod.MODID);
 
-	for (Blocks value : values()) {
-	    BLOCKS.register(value.name().toLowerCase(), () -> value.get());
-	}
+	Stream.of(values()).forEach(value -> RegisterUtils.define(BLOCKS, value, () -> value.get()));
 
 	BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
