@@ -39,16 +39,7 @@ public class RegisterUtils {
 	return deferredRegister.register(name, target);
     }
 
-    public static <T> RegistryObject<T> define(DeferredRegister<T> deferredRegister, String name, T target) {
-	return deferredRegister.register(name, () -> target);
-    }
-
     public static <T> RegistryObject<T> define(DeferredRegister<T> deferredRegister, Enum _enum, Supplier<T> target) {
 	return deferredRegister.register(_enum.name().toLowerCase(), target);
     }
-
-    public static <T> RegistryObject<T> define(DeferredRegister<T> deferredRegister, Enum _enum, T target) {
-	return deferredRegister.register(_enum.name().toLowerCase(), () -> target);
-    }
-
 }

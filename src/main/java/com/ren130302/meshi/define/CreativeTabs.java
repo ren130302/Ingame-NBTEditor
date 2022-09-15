@@ -6,7 +6,7 @@ import net.minecraft.world.level.ItemLike;
 
 public enum CreativeTabs {
 
-    ITEM_GROUP("meshi.item", null), DECO_GROUP("meshi.deco", null);
+    ITEM_GROUP("meshi.base", null), DECO_GROUP("meshi.deco", null);
 
     private final CreativeModeTab creativeTab;
 

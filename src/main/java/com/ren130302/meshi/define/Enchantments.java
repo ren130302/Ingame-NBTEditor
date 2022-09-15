@@ -3,7 +3,6 @@ package com.ren130302.meshi.define;
 import java.util.stream.Stream;
 
 import com.ren130302.lib.RegisterUtils;
-import com.ren130302.meshi.BambooMod;
 import com.ren130302.meshi.enchantment.AssassinThrow;
 import com.ren130302.meshi.enchantment.CriticalThrow;
 import com.ren130302.meshi.enchantment.EconomyBracelet;
@@ -25,9 +24,6 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantment.Rarity;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public enum Enchantments {
     /* COMMON */
@@ -54,12 +50,7 @@ public enum Enchantments {
     RETURN_THROW(new ReturnThrow(Rarity.VERY_RARE, Category.BRACELET, new EquipmentSlot[] { EquipmentSlot.MAINHAND }));
 
     static {
-	DeferredRegister<Enchantment> ENCHANTMENTS = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS,
-		BambooMod.MODID);
-
-	Stream.of(values()).forEach(value -> RegisterUtils.define(ENCHANTMENTS, value, () -> value.get()));
-
-	ENCHANTMENTS.register(FMLJavaModLoadingContext.get().getModEventBus());
+	Stream.of(values()).forEach(value -> RegisterUtils.define(Defination.ENCHANTMENTS, value, () -> value.get()));
     }
 
     private final Enchantment enchantment;

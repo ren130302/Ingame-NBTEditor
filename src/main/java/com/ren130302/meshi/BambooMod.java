@@ -1,5 +1,6 @@
 package com.ren130302.meshi;
 
+import com.ren130302.lib.RegisterUtils;
 import com.ren130302.meshi.define.Defination;
 
 import net.minecraftforge.common.MinecraftForge;
@@ -21,6 +22,7 @@ public class BambooMod {
 
     // public static final PacketDispatcher PIPELINE = new PacketDispatcher();
     public static BMConfig CONFIG;
+    public static final RegisterUtils REGISTER = new RegisterUtils(MODID);
 
     public BambooMod() {
 	IEventBus modBusEvent = FMLJavaModLoadingContext.get().getModEventBus();
