@@ -12,12 +12,12 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class Andon extends Block {
 
     public static final BooleanProperty BOTTOM = BlockStateProperties.BOTTOM;
+
     public static final VoxelShape AABB = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 15.0D, 12.0D);
 
     public Andon(Properties prop) {
 	super(prop);
-	// this.registerDefaultState(this.stateDefinition.any().setValue(BOTTOM,
-	// false));
+//	this.registerDefaultState(this.stateDefinition.any().setValue(BOTTOM, false));
     }
 
     @Override
