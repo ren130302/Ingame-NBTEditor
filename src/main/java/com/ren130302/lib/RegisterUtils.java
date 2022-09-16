@@ -1,45 +1,69 @@
 package com.ren130302.lib;
 
+import java.util.function.Function;
 import java.util.function.Supplier;
 
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.RegistryObject;
 
 public class RegisterUtils {
 
-    private final String modid;
-
-    public RegisterUtils(String modid) {
-	this.modid = modid;
+    public static <T> RegistryObject<T> register(DeferredRegister<T> defReg, String name, Supplier<T> sup) {
+	return defReg.register(name, sup);
     }
 
-    public static RegisterUtils DEF_REG(String modid) {
-	return new RegisterUtils(modid);
+    public static <T> RegistryObject<T> register(DeferredRegister<T> defReg, String name, T sup) {
+	return defReg.register(name, () -> sup);
     }
 
-    /**
-     * <pre>
-     * create(ForgeRegistries.Block);
-     * </pre>
-     *
-     * @param type {@link ForgeRegistries}
-     * @return
-     */
-    public <B> DeferredRegister<B> create(IForgeRegistry<B> type) {
-	return DeferredRegister.create(type, this.modid);
+    /* block */
+
+    public static RegistryObject<Block> blockAndItem(DeferredRegister<Block> defreg_blocks,
+	    DeferredRegister<Item> defreg_items, String name, Block.Properties blockProp, Item.Properties itemProp) {
+	return blockAndItem(defreg_blocks, defreg_items, name, Block::new, blockProp, itemProp);
     }
 
-    public String modId() {
-	return this.modid;
+    public static RegistryObject<Block> blockAndItem(DeferredRegister<Block> defreg_blocks,
+	    DeferredRegister<Item> defreg_items, String name, Function<Block.Properties, Block> block,
+	    Block.Properties blockProp, Item.Properties itemProp) {
+	final RegistryObject<Block> blockObj = block(defreg_blocks, name, block, blockProp);
+	item(defreg_items, name, () -> new BlockItem(null, itemProp) {
+	    @Override
+	    public Block getBlock() {
+		return blockObj.get();
+	    }
+	});
+	return blockObj;
     }
 
-    public static <T> RegistryObject<T> define(DeferredRegister<T> deferredRegister, String name, Supplier<T> target) {
-	return deferredRegister.register(name, target);
+    public static RegistryObject<Block> block(DeferredRegister<Block> defregItems, String name, Block.Properties prop) {
+	return block(defregItems, name, Block::new, prop);
     }
 
-    public static <T> RegistryObject<T> define(DeferredRegister<T> deferredRegister, Enum _enum, Supplier<T> target) {
-	return deferredRegister.register(_enum.name().toLowerCase(), target);
+    public static RegistryObject<Block> block(DeferredRegister<Block> defregItems, String name,
+	    Function<Block.Properties, Block> item, Block.Properties prop) {
+	return block(defregItems, name, () -> item.apply(prop));
+    }
+
+    public static RegistryObject<Block> block(DeferredRegister<Block> defregItems, String name, Supplier<Block> item) {
+	return register(defregItems, name, item);
+    }
+
+    /* item */
+
+    public static RegistryObject<Item> item(DeferredRegister<Item> defregItems, String name, Item.Properties prop) {
+	return item(defregItems, name, Item::new, prop);
+    }
+
+    public static RegistryObject<Item> item(DeferredRegister<Item> defregItems, String name,
+	    Function<Item.Properties, Item> item, Item.Properties prop) {
+	return item(defregItems, name, () -> item.apply(prop));
+    }
+
+    public static RegistryObject<Item> item(DeferredRegister<Item> defregItems, String name, Supplier<Item> item) {
+	return register(defregItems, name, item);
     }
 }

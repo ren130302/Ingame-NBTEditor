@@ -3,6 +3,7 @@ package com.ren130302.meshi.define;
 import java.util.stream.Stream;
 
 import com.ren130302.lib.RegisterUtils;
+import com.ren130302.meshi.BambooMod;
 import com.ren130302.meshi.enchantment.AssassinThrow;
 import com.ren130302.meshi.enchantment.CriticalThrow;
 import com.ren130302.meshi.enchantment.EconomyBracelet;
@@ -50,7 +51,8 @@ public enum Enchantments {
     RETURN_THROW(new ReturnThrow(Rarity.VERY_RARE, Category.BRACELET, new EquipmentSlot[] { EquipmentSlot.MAINHAND }));
 
     static {
-	Stream.of(values()).forEach(value -> RegisterUtils.define(Defination.ENCHANTMENTS, value, () -> value.get()));
+	Stream.of(values()).forEach(
+		value -> RegisterUtils.register(BambooMod.ENCHANTMENTS, value.name().toLowerCase(), () -> value.get()));
     }
 
     private final Enchantment enchantment;
@@ -61,6 +63,9 @@ public enum Enchantments {
 
     public final Enchantment get() {
 	return this.enchantment;
+    }
+
+    public static void init() {
     }
 
     public class Category {
