@@ -14,8 +14,7 @@ public class Items {
     public static final RegistryObject<Item> MAPLE_INGOT = register("maple_ingot", baseProp());
     public static final RegistryObject<Item> PADDY_FIELD_HOE = register("paddy_field_hoe", baseProp().stacksTo(1));
     public static final RegistryObject<Item> RICE_SEED = register("rice_seed", baseProp());
-    // public static final RegistryObject<Item> STRAW = register("straw",
-    // baseProp());
+    public static final RegistryObject<Item> STRAW = register("straw_", baseProp());
     public static final RegistryObject<Item> BIOME_LENZ = register("biome_lenz", baseProp().stacksTo(1));
     public static final RegistryObject<Item> ITEM_MAGNET = register("item_magnet", baseProp().stacksTo(1));
     public static final RegistryObject<Item> RAW_RICE = register("rawrice", baseProp());

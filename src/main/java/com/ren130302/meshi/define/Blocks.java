@@ -4,6 +4,8 @@ import java.util.function.Supplier;
 
 import com.ren130302.lib.RegisterUtils;
 import com.ren130302.meshi.BambooMod;
+import com.ren130302.meshi.block.Andon;
+import com.ren130302.meshi.block.BambooPot;
 
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.Item;
@@ -70,10 +72,12 @@ public class Blocks {
 	    Properties.of(Material.AMETHYST));
     public static final RegistryObject<Block> DELIVERY_PLATE = register("delivery_pressure_plate",
 	    Properties.of(Material.AMETHYST));
-    public static final RegistryObject<Block> BAMBOO_POT = register("bamboo_pot", Properties.of(Material.AMETHYST));
+    public static final RegistryObject<Block> BAMBOO_POT = register("bamboo_pot",
+	    () -> new BambooPot(Properties.of(Material.AMETHYST)));
     public static final RegistryObject<Block> KITSUNEBI = register("kitsunebi", Properties.of(Material.AMETHYST));
     public static final RegistryObject<Block> MILLSTONE = register("millstone", Properties.of(Material.AMETHYST));
-    public static final RegistryObject<Block> ANDON = register("andon", Properties.of(Material.AMETHYST));
+    public static final RegistryObject<Block> ANDON = register("andon",
+	    () -> new Andon(Properties.of(Material.AMETHYST)));
     public static final RegistryObject<Block> PADDY_FIELD = register("paddy_field", Properties.of(Material.AMETHYST));
     public static final RegistryObject<Block> RICE_PLANT = register("rice_plant", Properties.of(Material.AMETHYST));
     public static final RegistryObject<Block> HEARTH = register("hearth", Properties.of(Material.AMETHYST));
@@ -105,7 +109,8 @@ public class Blocks {
     public static final RegistryObject<Block> THATCHED_BLOCKS = register("thatched", Properties.of(Material.AMETHYST));
 
     private static RegistryObject<Block> register(String name, Supplier<Block> block) {
-	return RegisterUtils.register(BambooMod.BLOCKS, name, block);
+	return RegisterUtils.blockAndItem(BambooMod.BLOCKS, BambooMod.ITEMS, name, block,
+		new Item.Properties().tab(CreativeTabs.ITEM_GROUP.get()));
     }
 
     private static RegistryObject<Block> register(String name, Block.Properties blockProp) {

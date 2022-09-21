@@ -3,7 +3,6 @@ package com.ren130302.meshi.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -11,14 +10,14 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class Andon extends HorizontalDirectionalBlock {
+public class BambooPot extends Block {
 
-    public static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 15.0D, 12.0D);
+    public static final VoxelShape SHAPE = Block.box(6.0D, 0.0D, 6.0D, 10.0D, 4.0D, 10.0D);
 
-    public static final BooleanProperty BOTTOM = BlockStateProperties.BOTTOM;
+    public static final BooleanProperty ATTACHED = BlockStateProperties.ATTACHED;
 
-    public Andon(Properties prop) {
-	super(prop);
+    public BambooPot(Properties p_49795_) {
+	super(p_49795_);
     }
 
     @Override
@@ -28,6 +27,6 @@ public class Andon extends HorizontalDirectionalBlock {
 
     @Override
     protected void createBlockStateDefinition(Builder<Block, BlockState> builder) {
-	builder.add(FACING).add(BOTTOM);
+	builder.add(ATTACHED);
     }
 }
