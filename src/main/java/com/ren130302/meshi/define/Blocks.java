@@ -6,6 +6,7 @@ import com.ren130302.lib.RegisterUtils;
 import com.ren130302.meshi.BambooMod;
 import com.ren130302.meshi.block.Andon;
 import com.ren130302.meshi.block.BambooPot;
+import com.ren130302.meshi.block.Kitsunebi;
 
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.Item;
@@ -74,7 +75,8 @@ public class Blocks {
 	    Properties.of(Material.AMETHYST));
     public static final RegistryObject<Block> BAMBOO_POT = register("bamboo_pot",
 	    () -> new BambooPot(Properties.of(Material.AMETHYST)));
-    public static final RegistryObject<Block> KITSUNEBI = register("kitsunebi", Properties.of(Material.AMETHYST));
+    public static final RegistryObject<Block> KITSUNEBI = register("kitsunebi",
+	    () -> new Kitsunebi(Properties.of(Material.AMETHYST)));
     public static final RegistryObject<Block> MILLSTONE = register("millstone", Properties.of(Material.AMETHYST));
     public static final RegistryObject<Block> ANDON = register("andon",
 	    () -> new Andon(Properties.of(Material.AMETHYST)));
